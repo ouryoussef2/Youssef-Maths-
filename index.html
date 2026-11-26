@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MathExcellence — Plateforme complète de cours, résumés, exercices corrigés et astuces concours de mathématiques (Lycée Scientifique, Concours et Supérieur)." />
+  <title>MathExcellence — Cours, Résumés & Exercices Corrigés de Mathématiques</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              900: '#1e1b4b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- KaTeX for Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+    }
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .math-box-def {
+      border-left: 4px solid #2563eb;
+      background: linear-gradient(to right, #eff6ff, #f8fafc);
+    }
+    .math-box-thm {
+      border-left: 4px solid #7c3aed;
+      background: linear-gradient(to right, #f5f3ff, #f8fafc);
+    }
+    .math-box-prop {
+      border-left: 4px solid #059669;
+      background: linear-gradient(to right, #ecfdf5, #f8fafc);
+    }
+    .math-box-ex {
+      border-left: 4px solid #d97706;
+      background: linear-gradient(to right, #fffbeb, #f8fafc);
+    }
+    .math-box-tip {
+      border-left: 4px solid #e11d48;
+      background: linear-gradient(to right, #fff1f2, #f8fafc);
+    }
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #reader-print-area, #reader-print-area * {
+        visibility: visible;
+      }
+      #reader-print-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 0;
+        box-shadow: none;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-indigo-600 selection:text-white">
+
+  <!-- NAVIGATION BAR -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="#" onclick="resetFilters()" class="flex items-center gap-2.5 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center text-white shadow-md shadow-indigo-200 group-hover:scale-105 transition-transform">
+            <i data-lucide="sigma" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="font-display font-extrabold text-xl tracking-tight text-slate-900">Math<span class="text-indigo-600">Excellence</span></span>
+            <span class="hidden sm:block text-[11px] font-medium text-slate-500 -mt-1">Lycée • Concours • Supérieur</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-1">
+          <button onclick="selectCycle('all')" class="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-indigo-600 hover:bg-indigo-50 transition-colors">Tous les niveaux</button>
+          <button onclick="selectCycle('lycee')" class="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-indigo-600 hover:bg-indigo-50 transition-colors">Lycée Scientifique</button>
+          <button onclick="selectCycle('concours')" class="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-amber-600 hover:bg-amber-50 transition-colors">Concours</button>
+          <button onclick="selectCycle('superieur')" class="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 transition-colors">Supérieur</button>
+          <button onclick="openQuizModal()" class="ml-2 px-3.5 py-2 rounded-lg text-sm font-semibold text-violet-700 bg-violet-50 hover:bg-violet-100 border border-violet-200 flex items-center gap-1.5 transition-colors">
+            <i data-lucide="zap" class="w-4 h-4"></i> Quiz Éclair
+          </button>
+        </nav>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-2.5">
+          <div class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-medium text-slate-700">
+            <i data-lucide="award" class="w-4 h-4 text-emerald-600"></i>
+            <span id="progress-badge">0 maîtrisé</span>
+          </div>
+          <button onclick="openTeacherModal()" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-indigo-600 text-white text-sm font-semibold shadow-sm flex items-center gap-2 transition-all">
+            <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+            <span>Espace Professeur</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white py-14 sm:py-20">
+    <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#818cf8 1px, transparent 1px); background-size: 24px 24px;"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-200 text-xs font-semibold mb-6">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
+          <span>Bibliothèque Officielle de Mathématiques — Cours, Résumés & Exercices Corrigés</span>
+        </div>
+        <h1 class="font-display text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight mb-5">
+          Maîtrisez les Mathématiques du <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-sky-300 to-emerald-300">Lycée aux Grandes Écoles</span>
+        </h1>
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-8">
+          Des cours structurés pas à pas, des fiches résumés express, des séries d'exercices progressifs corrigés et des astuces exclusives pour réussir le Baccalauréat, les Concours et l'Enseignement Supérieur.
+        </p>
+
+        <!-- Search Bar -->
+        <div class="max-w-2xl mx-auto relative">
+          <div class="flex items-center bg-white rounded-2xl shadow-xl shadow-indigo-950/50 p-1.5 border border-white/20">
+            <i data-lucide="search" class="w-5 h-5 text-slate-400 ml-3.5"></i>
+            <input id="search-input" type="text" oninput="handleSearch(this.value)" placeholder="Rechercher un chapitre (ex: Suites numériques, Intégrales, Nombres complexes, Limites...)" class="w-full px-3.5 py-2.5 text-slate-900 placeholder-slate-400 text-sm sm:text-base focus:outline-none bg-transparent" />
+            <button onclick="document.getElementById('library-section').scrollIntoView({behavior:'smooth'})" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm transition-colors shrink-0">
+              Explorer
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-3 gap-4 max-w-xl mx-auto mt-10 pt-8 border-t border-white/10 text-center">
+          <div>
+            <div class="font-display text-2xl sm:text-3xl font-extrabold text-white">14</div>
+            <div class="text-xs text-slate-400 mt-0.5">Filières Scientifiques</div>
+          </div>
+          <div>
+            <div id="stat-courses-count" class="font-display text-2xl sm:text-3xl font-extrabold text-indigo-300">12</div>
+            <div class="text-xs text-slate-400 mt-0.5">Chapitres Complets</div>
+          </div>
+          <div>
+            <div class="font-display text-2xl sm:text-3xl font-extrabold text-emerald-300">100%</div>
+            <div class="text-xs text-slate-400 mt-0.5">Corrigés & LaTeX</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPLORER PAR CYCLE & FILIERE -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
+    <!-- 3 Grand Poles -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <button onclick="selectCycle('lycee')" id="pole-lycee" class="pole-card text-left p-5 rounded-2xl bg-white border-2 border-indigo-600 shadow-lg hover:shadow-xl transition-all flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center shrink-0">
+          <i data-lucide="book-open" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-600">Cycle Secondaire</span>
+          <h2 class="font-display font-bold text-lg text-slate-900">Lycée Scientifique</h2>
+          <p class="text-xs text-slate-500 mt-1">Tronc Commun (TCS/TCT), 1ère Bac & 2ème Bac (SM, PC/SVT, STE/STM).</p>
+        </div>
+      </button>
+
+      <button onclick="selectCycle('concours')" id="pole-concours" class="pole-card text-left p-5 rounded-2xl bg-white border border-slate-200 shadow-md hover:shadow-xl transition-all flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center shrink-0">
+          <i data-lucide="trophy" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-amber-600">Post-Bac & Grandes Écoles</span>
+          <h2 class="font-display font-bold text-lg text-slate-900">Préparation aux Concours</h2>
+          <p class="text-xs text-slate-500 mt-1">ENSA, ENSAM, Médecine & Pharmacie (FMP/FMD), CNC.</p>
+        </div>
+      </button>
+
+      <button onclick="selectCycle('superieur')" id="pole-superieur" class="pole-card text-left p-5 rounded-2xl bg-white border border-slate-200 shadow-md hover:shadow-xl transition-all flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+          <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-600">Université & CPGE</span>
+          <h2 class="font-display font-bold text-lg text-slate-900">Enseignement Supérieur</h2>
+          <p class="text-xs text-slate-500 mt-1">Classes Préparatoires (MPSI/MP, PCSI/PSI) et Facultés (MIP/SMIA).</p>
+        </div>
+      </button>
+    </div>
+
+    <!-- Filières / Spécialités Grid -->
+    <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-sm mb-10">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex items-center gap-2">
+          <i data-lucide="compass" class="w-5 h-5 text-indigo-600"></i>
+          <h3 id="tracks-heading" class="font-display font-bold text-base sm:text-lg text-slate-900">Toutes les Filières & Spécialités Scientifiques</h3>
+        </div>
+        <button onclick="resetFilters()" class="text-xs font-semibold text-indigo-600 hover:text-indigo-800 flex items-center gap-1">
+          <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Réinitialiser les filtres
+        </button>
+      </div>
+      <div id="tracks-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- LIBRARY SECTION -->
+  <main id="library-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+    <!-- Filter Tabs by Resource Type -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+      <div>
+        <h2 id="library-title" class="font-display text-2xl font-extrabold text-slate-900">Bibliothèque des Cours</h2>
+        <p id="library-subtitle" class="text-sm text-slate-500">Sélectionnez un chapitre pour ouvrir le cours complet, le résumé et les exercices corrigés.</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-1.5 bg-slate-200/70 p-1 rounded-xl">
+        <button onclick="selectType('all')" data-type="all" class="type-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-900 shadow-sm transition-all">Tout</button>
+        <button onclick="selectType('Cours Complet')" data-type="Cours Complet" class="type-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all">Cours</button>
+        <button onclick="selectType('Fiche Résumé')" data-type="Fiche Résumé" class="type-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all">Résumés</button>
+        <button onclick="selectType('Série Exercices')" data-type="Série Exercices" class="type-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all">Exercices</button>
+        <button onclick="selectType('Sujet Concours')" data-type="Sujet Concours" class="type-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all">Concours</button>
+      </div>
+    </div>
+
+    <!-- Courses Grid -->
+    <div id="courses-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="empty-state" class="hidden text-center py-16 bg-white rounded-2xl border border-dashed border-slate-300">
+      <div class="w-14 h-14 rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center mx-auto mb-3">
+        <i data-lucide="search-x" class="w-7 h-7"></i>
+      </div>
+      <h3 class="font-display font-bold text-lg text-slate-800">Aucun chapitre trouvé pour ce filtre</h3>
+      <p class="text-sm text-slate-500 mt-1 mb-4">Essayez une autre filière ou ajoutez directement votre cours depuis l'Espace Professeur.</p>
+      <button onclick="resetFilters()" class="px-4 py-2 rounded-xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700">Afficher tous les cours</button>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 py-10 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white">
+          <i data-lucide="sigma" class="w-4 h-4"></i>
+        </div>
+        <span class="font-display font-bold text-white">MathExcellence</span>
+      </div>
+      <p class="text-xs text-center sm:text-left">Plateforme éducative dédiée à l'enseignement des mathématiques — Lycée Scientifique, Concours & Enseignement Supérieur.</p>
+      <button onclick="openTeacherModal()" class="text-xs font-semibold text-indigo-400 hover:text-indigo-300">Accès Professeur →</button>
+    </div>
+  </footer>
+
+  <!-- ========================================================= -->
+  <!-- IMMERSIVE CHAPTER READER MODAL                            -->
+  <!-- ========================================================= -->
+  <div id="reader-modal" class="fixed inset-0 z-50 hidden bg-slate-900/75 backdrop-blur-sm overflow-y-auto">
+    <div class="min-h-screen flex items-center justify-center p-2 sm:p-6">
+      <div class="bg-white w-full max-w-6xl rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
+        <!-- Top Bar -->
+        <div class="no-print px-5 py-4 bg-slate-50 border-b border-slate-200 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <button onclick="closeReader()" class="p-2 rounded-xl hover:bg-slate-200 text-slate-600 transition-colors" title="Fermer">
+              <i data-lucide="arrow-left" class="w-5 h-5"></i>
+            </button>
+            <div>
+              <div class="flex items-center gap-2">
+                <span id="reader-track-badge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-100 text-indigo-700">2Bac SMA/SMB</span>
+                <span id="reader-type-badge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-200 text-slate-700">Cours Complet</span>
+              </div>
+              <h2 id="reader-title" class="font-display font-extrabold text-lg sm:text-xl text-slate-900 mt-0.5">Titre du Chapitre</h2>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button id="mastered-btn" onclick="toggleMasteredCurrent()" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border transition-all flex items-center gap-1.5">
+              <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+              <span>Marquer comme maîtrisé</span>
+            </button>
+            <button onclick="window.print()" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-indigo-600 text-white text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition-colors">
+              <i data-lucide="printer" class="w-4 h-4"></i>
+              <span class="hidden sm:inline">Imprimer / PDF</span>
+            </button>
+            <button onclick="closeReader()" class="p-2 rounded-xl hover:bg-rose-100 text-slate-500 hover:text-rose-600 transition-colors">
+              <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Reader Body with 4 Pedagogical Tabs -->
+        <div class="flex-1 overflow-y-auto grid grid-cols-1 lg:grid-cols-4">
+          <!-- Sidebar Navigation -->
+          <aside class="no-print lg:col-span-1 bg-slate-50/70 border-b lg:border-b-0 lg:border-r border-slate-200 p-4 flex lg:flex-col gap-2 overflow-x-auto">
+            <button onclick="switchReaderTab('cours')" id="rtab-cours" class="rtab-btn flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-indigo-600 text-white shadow-sm shrink-0">
+              <i data-lucide="book-open-text" class="w-4 h-4"></i>
+              <span>1. Cours Détaillé</span>
+            </button>
+            <button onclick="switchReaderTab('resume')" id="rtab-resume" class="rtab-btn flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-200/70 shrink-0">
+              <i data-lucide="clipboard-list" class="w-4 h-4"></i>
+              <span>2. Résumé Express</span>
+            </button>
+            <button onclick="switchReaderTab('exercices')" id="rtab-exercices" class="rtab-btn flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-200/70 shrink-0">
+              <i data-lucide="pen-tool" class="w-4 h-4"></i>
+              <span>3. Exercices Corrigés</span>
+            </button>
+            <button onclick="switchReaderTab('astuces')" id="rtab-astuces" class="rtab-btn flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-200/70 shrink-0">
+              <i data-lucide="lightbulb" class="w-4 h-4"></i>
+              <span>4. Astuces & Pièges</span>
+            </button>
+          </aside>
+
+          <!-- Main Content -->
+          <div id="reader-print-area" class="lg:col-span-3 p-6 sm:p-8 space-y-6 text-slate-800 leading-relaxed">
+            <div id="reader-content-body"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- QUIZ ECLAIR MODAL                                         -->
+  <!-- ========================================================= -->
+  <div id="quiz-modal" class="fixed inset-0 z-50 hidden bg-slate-900/75 backdrop-blur-sm overflow-y-auto">
+    <div class="min-h-screen flex items-center justify-center p-4">
+      <div class="bg-white w-full max-w-xl rounded-3xl shadow-2xl p-6 sm:p-8">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+          <div class="flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-xl bg-violet-100 text-violet-600 flex items-center justify-center">
+              <i data-lucide="zap" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-display font-extrabold text-lg text-slate-900">Quiz Éclair — Réflexes Mathématiques</h3>
+              <p class="text-xs text-slate-500">Testez vos automatismes pour le Bac et les Concours</p>
+            </div>
+          </div>
+          <button onclick="closeQuizModal()" class="p-2 rounded-xl hover:bg-slate-100 text-slate-500">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <div id="quiz-body" class="py-6 space-y-4">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- TEACHER STUDIO MODAL                                      -->
+  <!-- ========================================================= -->
+  <div id="teacher-modal" class="fixed inset-0 z-50 hidden bg-slate-900/75 backdrop-blur-sm overflow-y-auto">
+    <div class="min-h-screen flex items-center justify-center p-3 sm:p-6">
+      <div class="bg-white w-full max-w-5xl rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
+        <div class="px-6 py-4 bg-slate-900 text-white flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <i data-lucide="graduation-cap" class="w-6 h-6 text-indigo-400"></i>
+            <div>
+              <h3 class="font-display font-extrabold text-lg">Studio Professeur — Publier un Cours</h3>
+              <p class="text-xs text-slate-400">Ajoutez vos chapitres avec support complet LaTeX ($...$ et $$...$$)</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="exportCoursesJSON()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold flex items-center gap-1.5 border border-slate-700">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Sauvegarder JSON
+            </button>
+            <button onclick="closeTeacherModal()" class="p-2 rounded-xl hover:bg-slate-800 text-slate-300">
+              <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="flex-1 overflow-y-auto p-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Form -->
+          <form id="teacher-form" onsubmit="saveNewCourse(event)" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Filière / Spécialité</label>
+                <select id="f-track" required class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                  <!-- Populated by JS -->
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Type de Ressource</label>
+                <select id="f-type" required class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                  <option value="Cours Complet">Cours Complet</option>
+                  <option value="Fiche Résumé">Fiche Résumé</option>
+                  <option value="Série Exercices">Série Exercices</option>
+                  <option value="Sujet Concours">Sujet Concours</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Titre du Chapitre</label>
+              <input id="f-title" type="text" required placeholder="Ex: Les Suites Numériques — Convergence et Limites" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Description courte (accroche élève)</label>
+              <input id="f-desc" type="text" required placeholder="Ex: Théorèmes de convergence monotone, suites adjacentes et exercices types Bac." class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none" />
+            </div>
+
+            <!-- Quick Insert Toolbar -->
+            <div>
+              <div class="flex flex-wrap items-center justify-between gap-1 mb-1.5">
+                <label class="text-xs font-bold text-slate-700">Contenu du Cours (HTML + LaTeX)</label>
+                <div class="flex flex-wrap gap-1">
+                  <button type="button" onclick="insertSnippet('def')" class="px-2 py-0.5 rounded bg-blue-100 text-blue-700 text-[11px] font-semibold hover:bg-blue-200">+ Définition</button>
+                  <button type="button" onclick="insertSnippet('thm')" class="px-2 py-0.5 rounded bg-violet-100 text-violet-700 text-[11px] font-semibold hover:bg-violet-200">+ Théorème</button>
+                  <button type="button" onclick="insertSnippet('prop')" class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-700 text-[11px] font-semibold hover:bg-emerald-200">+ Propriété</button>
+                  <button type="button" onclick="insertSnippet('ex')" class="px-2 py-0.5 rounded bg-amber-100 text-amber-700 text-[11px] font-semibold hover:bg-amber-200">+ Exemple</button>
+                </div>
+              </div>
+              <textarea id="f-cours" rows="5" oninput="updateLivePreview()" required placeholder="Écrivez votre cours ici. Utilisez $x^2$ pour une formule en ligne et $$\int_a^b f(x)dx$$ pour une formule centrée." class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs font-mono focus:ring-2 focus:ring-indigo-500 focus:outline-none"></textarea>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Fiche Résumé Express (Formules clés)</label>
+              <textarea id="f-resume" rows="2" placeholder="Les formules essentielles à retenir avant le contrôle..." class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs font-mono focus:ring-2 focus:ring-indigo-500 focus:outline-none"></textarea>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Exercice & Solution</label>
+                <textarea id="f-exercices" rows="2" placeholder="Énoncé + correction détaillée..." class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs font-mono focus:ring-2 focus:ring-indigo-500 focus:outline-none"></textarea>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Astuces Concours & Pièges</label>
+                <textarea id="f-astuces" rows="2" placeholder="Conseils méthodologiques et erreurs fréquentes..." class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs font-mono focus:ring-2 focus:ring-indigo-500 focus:outline-none"></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-md transition-colors flex items-center justify-center gap-2">
+              <i data-lucide="plus-circle" class="w-4 h-4"></i>
+              <span>Publier ce chapitre dans la bibliothèque</span>
+            </button>
+          </form>
+
+          <!-- Live Preview & Manage Existing -->
+          <div class="space-y-4">
+            <div class="bg-slate-50 rounded-2xl border border-slate-200 p-4">
+              <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                <i data-lucide="eye" class="w-4 h-4 text-indigo-600"></i>
+                <span>Prévisualisation LaTeX en direct</span>
+              </div>
+              <div id="live-preview-box" class="bg-white rounded-xl p-4 border border-slate-200 min-h-[160px] text-sm text-slate-800 overflow-y-auto max-h-64">
+                <p class="text-slate-400 italic">Tapez votre cours à gauche pour voir le rendu mathématique instantané...</p>
+              </div>
+            </div>
+
+            <div class="bg-slate-50 rounded-2xl border border-slate-200 p-4">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">Chapitres publiés (<span id="manage-count">0</span>)</h4>
+              <div id="manage-courses-list" class="space-y-2 max-h-56 overflow-y-auto pr-1">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- JAVASCRIPT DATA & LOGIC                                   -->
+  <!-- ========================================================= -->
+  <script>
+    const TRACKS = [
+      // Lycée Scientifique
+      { id: 'tcs', name: 'Tronc Commun Sc.', short: 'TCS', cycle: 'lycee', icon: 'atom', color: 'indigo' },
+      { id: 'tct', name: 'Tronc Commun Tech.', short: 'TCT', cycle: 'lycee', icon: 'cpu', color: 'indigo' },
+      { id: '1bac-sm', name: '1Bac Sciences Maths', short: '1Bac SM', cycle: 'lycee', icon: 'pi', color: 'indigo' },
+      { id: '1bac-sex', name: '1Bac Sc. Expérimentales', short: '1Bac S.Ex', cycle: 'lycee', icon: 'flask-conical', color: 'indigo' },
+      { id: '1bac-tech', name: '1Bac STE / STM', short: '1Bac Tech', cycle: 'lycee', icon: 'cog', color: 'indigo' },
+      { id: '2bac-sm', name: '2Bac Sciences Maths A/B', short: '2Bac SMA/SMB', cycle: 'lycee', icon: 'sigma', color: 'indigo' },
+      { id: '2bac-pc', name: '2Bac PC / SVT', short: '2Bac PC/SVT', cycle: 'lycee', icon: 'orbit', color: 'indigo' },
+      { id: '2bac-tech', name: '2Bac STE / STM', short: '2Bac Tech', cycle: 'lycee', icon: 'wrench', color: 'indigo' },
+      // Concours
+      { id: 'concours-ensa', name: 'Concours ENSA / ENSAM', short: 'ENSA / ENSAM', cycle: 'concours', icon: 'compass', color: 'amber' },
+      { id: 'concours-med', name: 'Médecine & Pharmacie', short: 'Médecine FMP', cycle: 'concours', icon: 'heart-pulse', color: 'amber' },
+      { id: 'concours-cnc', name: 'Concours National Commun', short: 'CNC', cycle: 'concours', icon: 'award', color: 'amber' },
+      // Supérieur
+      { id: 'sup-mpsi', name: 'CPGE MPSI / MP', short: 'MPSI / MP', cycle: 'superieur', icon: 'brain-circuit', color: 'emerald' },
+      { id: 'sup-pcsi', name: 'CPGE PCSI / PSI', short: 'PCSI / PSI', cycle: 'superieur', icon: 'gauge', color: 'emerald' },
+      { id: 'sup-fac', name: 'Faculté MIP / SMIA', short: 'MIP / SMIA', cycle: 'superieur', icon: 'binary', color: 'emerald' },
+    ];
+
+    const DEFAULT_COURSES = [
+      {
+        id: 'c1',
+        trackId: '2bac-sm',
+        type: 'Cours Complet',
+        title: 'Les Suites Numériques : Convergence & Suites Adjacentes',
+        desc: 'Étude complète de la convergence, théorèmes des gendarmes, suites récurrentes u_{n+1}=f(u_n) et suites adjacentes.',
+        cours: `
+          <h3 class="text-xl font-bold text-slate-900 mb-3">I. Convergence et Théorèmes Fondamentaux</h3>
+          <div class="math-box-def p-4 rounded-r-xl mb-4">
+            <div class="font-bold text-blue-800 text-sm mb-1">Définition (Limite finie)</div>
+            <p>On dit qu'une suite $(u_n)$ converge vers un réel $\ell$ si :</p>
+            $$\forall \varepsilon > 0, \quad \exists N \in \mathbb{N}, \quad \forall n \ge N \implies |u_n - \ell| < \varepsilon$$
+          </div>
+          <div class="math-box-thm p-4 rounded-r-xl mb-4">
+            <div class="font-bold text-violet-800 text-sm mb-1">Théorème de la Convergence Monotone</div>
+            <p>Toute suite réelle <strong>croissante et majorée</strong> est convergente. Toute suite réelle <strong>décroissante et minorée</strong> est convergente.</p>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mt-6 mb-3">II. Suites Récurrentes $u_{n+1} = f(u_n)$</h3>
+          <div class="math-box-prop p-4 rounded-r-xl mb-4">
+            <div class="font-bold text-emerald-800 text-sm mb-1">Propriété du Point Fixe</div>
+            <p>Si $f$ est continue sur un intervalle fermé $I$ tel que $f(I) \subset I$, et si la suite $(u_n)$ définie par $u_0 \in I$ et $u_{n+1}=f(u_n)$ converge vers $\ell \in I$, alors $\ell$ est solution de l'équation $f(\ell) = \ell$.</p>
+          </div>
+        `,
+        resume: `
+          <div class="math-box-prop p-4 rounded-r-xl space-y-2">
+            <div class="font-bold text-emerald-800">À retenir absolument :</div>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>Suite géométrique $u_n = u_0 q^n$ : converge vers $0$ si $|q| < 1$.</li>
+              <li>Théorème d'encadrement : si $v_n \le u_n \le w_n$ et $\lim v_n = \lim w_n = \ell$, alors $\lim u_n = \ell$.</li>
+              <li>Inégalité des accroissements finis : si $|f'(x)| \le k < 1$, alors $|u_{n+1} - \ell| \le k |u_n - \ell| \le k^n |u_0 - \ell|$.</li>
+            </ul>
+          </div>
+        `,
+        exercices: `
+          <div class="border border-slate-200 rounded-2xl p-5 bg-white">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-bold text-slate-900">Exercice Type Bac (★★☆)</span>
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800">Récurrence & Convergence</span>
+            </div>
+            <p class="mb-3">Soit $(u_n)$ définie par $u_0 = 2$ et $u_{n+1} = \frac{1}{2}u_n + 1$.</p>
+            <ol class="list-decimal pl-5 space-y-1 mb-4">
+              <li>Montrer par récurrence que $\forall n \in \mathbb{N}, u_n > 2$ ? (Vérifier le sens de variation).</li>
+              <li>On pose $v_n = u_n - 2$. Montrer que $(v_n)$ est géométrique et déduire $\lim_{n \to +\infty} u_n$.</li>
+            </ol>
+            <details class="bg-slate-50 rounded-xl p-4 border border-slate-200 cursor-pointer">
+              <summary class="font-bold text-indigo-600 text-sm">Voir la correction détaillée</summary>
+              <div class="mt-3 pt-3 border-t border-slate-200 text-sm space-y-2">
+                <p><strong>1.</strong> Ici $u_0 = 2$, donc $u_1 = \frac{1}{2}(2)+1 = 2$. La suite est constante égale à $2$ ! Si $u_0 = 3$, alors $u_n > 2$ et $(u_n)$ est décroissante.</p>
+                <p><strong>2.</strong> $v_{n+1} = u_{n+1} - 2 = \frac{1}{2}u_n + 1 - 2 = \frac{1}{2}(u_n - 2) = \frac{1}{2}v_n$. Donc $(v_n)$ est géométrique de raison $q = \frac{1}{2}$. Comme $|q|<1$, $\lim v_n = 0$ et $\lim u_n = 2$.</p>
+              </div>
+            </details>
+          </div>
+        `,
+        astuces: `
+          <div class="math-box-tip p-4 rounded-r-xl space-y-2">
+            <div class="font-bold text-rose-800">Pièges fréquents au Baccalauréat :</div>
+            <p>Ne jamais écrire $\lim_{n \to +\infty} u_n = \ell$ <strong>avant</strong> d'avoir démontré que la suite est convergente !</p>
+            <p>Pensez toujours à vérifier que l'intervalle $I$ est <strong>fermé</strong> lorsqu'on applique le théorème du point fixe $f(\ell) = \ell$.</p>
+          </div>
+        `
+      },
+      {
+        id: 'c2',
+        trackId: '2bac-pc',
+        type: 'Cours Complet',
+        title: 'Les Nombres Complexes : Formes Algébrique, Trigonométrique et Exponentielle',
+        desc: 'Calcul dans C, module, argument, formule de Moivre, formules d’Euler et transformations géométriques.',
+        cours: `
+          <h3 class="text-xl font-bold text-slate-900 mb-3">I. Écritures d'un Nombre Complexe</h3>
+          <div class="math-box-def p-4 rounded-r-xl mb-4">
+            <div class="font-bold text-blue-800 text-sm mb-1">Forme Exponentielle</div>
+            <p>Tout nombre complexe non nul $z$ de module $r = |z|$ et d'argument $\theta \equiv \arg(z) [2\pi]$ s'écrit :</p>
+            $$z = r e^{i\theta} = r(\cos\theta + i\sin\theta)$$
+          </div>
+          <div class="math-box-thm p-4 rounded-r-xl mb-4">
+            <div class="font-bold text-violet-800 text-sm mb-1">Formules d'Euler & de Moivre</div>
+            $$\cos\theta = \frac{e^{i\theta} + e^{-i\theta}}{2}, \qquad \sin\theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}, \qquad (\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta)$$
+          </div>
+        `,
+        resume: `
+          <div class="math-box-prop p-4 rounded-r-xl space-y-1">
+            <div class="font-bold text-emerald-800">Géométrie & Complexes :</div>
+            <p>• Distance $AB = |z_B - z_A|$.</p>
+            <p>• Angle $(\overrightarrow{AB}, \overrightarrow{AC}) \equiv \arg\left(\frac{z_C - z_A}{z_B - z_A}\right) [2\pi]$.</p>
+            <p>• Rotation de centre $\Omega(\omega)$ et d'angle $\theta$ : $z' - \omega = e^{i\theta}(z - \omega)$.</p>
+          </div>
+        `,
+        exercices: `
+          <div class="border border-slate-200 rounded-2xl p-5 bg-white">
+            <div class="font-bold text-slate-900 mb-2">Exercice d'application (★☆☆)</div>
+            <p class="mb-3">Écrire sous forme exponentielle le nombre complexe $z = 1 + i\sqrt{3}$.</p>
+            <details class="bg-slate-50 rounded-xl p-4 border border-slate-200 cursor-pointer">
+              <summary class="font-bold text-indigo-600 text-sm">Voir la correction</summary>
+              <p class="mt-2 text-sm">On a $|z| = \sqrt{1^2 + (\sqrt{3})^2} = 2$. D'où $z = 2\left(\frac{1}{2} + i\frac{\sqrt{3}}{2}\right) = 2e^{i\frac{\pi}{3}}$.</p>
+            </details>
+          </div>
+        `,
+        astuces: `
+          <div class="math-box-tip p-4 rounded-r-xl">
+            <div class="font-bold text-rose-800 mb-1">Astuce Rapide :</div>
+            <p>Pour factoriser $e^{ia} + e^{ib}$, factorisez toujours par l'angle moitié $e^{i\frac{a+b}{2}}$ : $$e^{ia} + e^{ib} = 2\cos\left(\frac{a-b}{2}\right)e^{i\frac{a+b}{2}}$$</p>
+          </div>
+        `
+      },
+      {
+        id: 'c3',
+        trackId: '1bac-sm',
+        type: 'Cours Complet',
+        title: 'Logique Mathématique & Raisonnements',
+        desc: 'Propositions, quantificateurs, raisonnement par récurrence, par l’absurde et par contraposée.',
+        cours: `
+          <div class="math-box-def p-4 rounded-r-xl mb-4">
+            <div class="font-bold text-blue-800 text-sm mb-1">Négation des Quantificateurs</div>
+            <p>La négation de $(\forall x \in E, P(x))$ est $(\exists x \in E, \overline{P(x)})$.</p>
+          </div>
+          <div class="math-box-thm p-4 rounded-r-xl">
+            <div class="font-bold text-violet-800 text-sm mb-1">Raisonnement par Contraposée</div>
+            <p>Pour montrer que $P \implies Q$, il suffit de démontrer que $\overline{Q} \implies \overline{P}$.</p>
+          </div>
+        `,
+        resume: `<p>Maîtriser les 4 modes de démonstration : Direct, Contraposée, Absurde, Récurrence.</p>`,
+        exercices: `<p>Montrer que pour tout $n \in \mathbb{N}$, si $n^2$ est pair alors $n$ est pair (utiliser la contraposée).</p>`,
+        astuces: `<p>Attention : la réciproque de $P \implies Q$ est $Q \implies P$, à ne pas confondre avec la contraposée $\overline{Q} \implies \overline{P}$.</p>`
+      },
+      {
+        id: 'c4',
+        trackId: 'tcs',
+        type: 'Fiche Résumé',
+        title: 'Calcul Vectoriel dans le Plan & Ensemble des Nombres',
+        desc: 'Colinéarité de deux vecteurs, barycentre, ensembles N, Z, D, Q, R et identités remarquables.',
+        cours: `
+          <div class="math-box-prop p-4 rounded-r-xl mb-4">
+            <div class="font-bold text-emerald-800 text-sm mb-1">Condition de Colinéarité</div>
+            <p>Deux vecteurs $\vec{u}(x, y)$ et $\vec{v}(x', y')$ sont colinéaires si et seulement si $\det(\vec{u}, \vec{v}) = xy' - x'y = 0$.</p>
+          </div>
+        `,
+        resume: `<p>$\mathbb{N} \subset \mathbb{Z} \subset \mathbb{D} \subset \mathbb{Q} \subset \mathbb{R}$.</p>`,
+        exercices: `<p>Déterminer $m$ pour que $\vec{u}(2, m-1)$ et $\vec{v}(4, 6)$ soient colinéaires. Réponse : $2\times 6 - 4(m-1) = 0 \iff m = 4$.</p>`,
+        astuces: `<p>Trois points $A, B, C$ sont alignés si et seulement si $\det(\overrightarrow{AB}, \overrightarrow{AC}) = 0$.</p>`
+      },
+      {
+        id: 'c5',
+        trackId: 'concours-ensa',
+        type: 'Sujet Concours',
+        title: 'Astuces Calcul de Limites & Développements Limités (ENSA / ENSAM)',
+        desc: 'Méthodes ultra-rapides pour lever les formes indéterminées en moins de 30 secondes le jour du concours.',
+        cours: `
+          <div class="math-box-thm p-4 rounded-r-xl mb-4">
+            <div class="font-bold text-violet-800 text-sm mb-1">Équivalents Usuels au voisinage de $0$</div>
+            $$\sin x \sim x, \quad \tan x \sim x, \quad 1 - \cos x \sim \frac{x^2}{2}, \quad e^x - 1 \sim x, \quad \ln(1+x) \sim x$$
+          </div>
+          <div class="math-box-ex p-4 rounded-r-xl">
+            <div class="font-bold text-amber-800 text-sm mb-1">Exemple Concours ENSA</div>
+            <p>Calculer $\lim_{x \to 0} \frac{1 - \cos(3x)}{x \sin(2x)}$ :</p>
+            <p>Au voisinage de $0$ : $1 - \cos(3x) \sim \frac{(3x)^2}{2} = \frac{9}{2}x^2$ et $x\sin(2x) \sim 2x^2$. Donc la limite vaut $\frac{9}{4}$ !</p>
+          </div>
+        `,
+        resume: `<p>Utilisez la règle de L'Hôpital uniquement pour les quotients $\frac{0}{0}$ ou $\frac{\infty}{\infty}$.</p>`,
+        exercices: `<p>Calculer $\lim_{x \to 0} \frac{e^{2x} - 1}{\ln(1 + 5x)}$. Réponse : $\frac{2x}{5x} = \frac{2}{5}$.</p>`,
+        astuces: `<div class="math-box-tip p-4 rounded-r-xl"><p>Ne jamais additionner deux équivalents sans précaution si leurs parties principales s'annulent !</p></div>`
+      },
+      {
+        id: 'c6',
+        trackId: 'concours-med',
+        type: 'Sujet Concours',
+        title: 'QCM Rapide : Probabilités & Dénombrement (Concours Médecine)',
+        desc: 'Combinaisons, arrangements, probabilité conditionnelle et loi binomiale avec gestion du chronomètre.',
+        cours: `
+          <div class="math-box-def p-4 rounded-r-xl">
+            <div class="font-bold text-blue-800 text-sm mb-1">Loi Binomiale $\mathcal{B}(n, p)$</div>
+            $$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}, \qquad E(X) = np, \qquad V(X) = np(1-p)$$
+          </div>
+        `,
+        resume: `<p>Tirage simultané $\rightarrow \binom{n}{p}$ ; Tirage successif sans remise $\rightarrow A_n^p$ ; Avec remise $\rightarrow n^p$.</p>`,
+        exercices: `<p>Une urne contient 3 boules rouges et 2 vertes. On tire simultanément 2 boules. Probabilité d'avoir 2 couleurs différentes : $\frac{\binom{3}{1}\binom{2}{1}}{\binom{5}{2}} = \frac{6}{10} = 0,6$.</p>`,
+        astuces: `<p>Penser à l'événement contraire : $P(\text{au moins un}) = 1 - P(\text{aucun})$.</p>`
+      },
+      {
+        id: 'c7',
+        trackId: 'sup-mpsi',
+        type: 'Cours Complet',
+        title: 'Espaces Vectoriels & Applications Linéaires (MPSI / MIP)',
+        desc: 'Sous-espaces vectoriels, familles libres et génératrices, dimension finie et théorème du rang.',
+        cours: `
+          <div class="math-box-thm p-4 rounded-r-xl mb-4">
+            <div class="font-bold text-violet-800 text-sm mb-1">Théorème du Rang</div>
+            <p>Soit $u \in \mathcal{L}(E, F)$ avec $E$ de dimension finie. Alors :</p>
+            $$\dim E = \dim(\ker u) + \operatorname{rg}(u)$$
+          </div>
+        `,
+        resume: `<p>En dimension finie $\dim E = \dim F$, $u$ est bijective $\iff u$ injective $\iff u$ surjective.</p>`,
+        exercices: `<p>Soit $u : \mathbb{R}^3 \to \mathbb{R}^2$ surjective. Déterminer $\dim(\ker u)$. Réponse : $3 - 2 = 1$.</p>`,
+        astuces: `<p>Pour montrer qu'une partie $F$ est un sous-espace vectoriel, vérifiez toujours d'abord que $0_E \in F$.</p>`
+      },
+      {
+        id: 'c8',
+        trackId: '2bac-tech',
+        type: 'Cours Complet',
+        title: 'Calcul Intégral & Équations Différentielles (2Bac STE / STM)',
+        desc: 'Primitives usuelles, intégration par parties, calcul d’aires et équations y’ + ay = b.',
+        cours: `
+          <div class="math-box-thm p-4 rounded-r-xl">
+            <div class="font-bold text-violet-800 text-sm mb-1">Équation Différentielle $y' + ay = b$</div>
+            <p>Les solutions sur $\mathbb{R}$ sont les fonctions $y(x) = C e^{-ax} + \frac{b}{a}$ avec $C \in \mathbb{R}$.</p>
+          </div>
+        `,
+        resume: `<p>$\int_a^b u'(x)v(x)dx = [u(x)v(x)]_a^b - \int_a^b u(x)v'(x)dx$.</p>`,
+        exercices: `<p>Résoudre $y' + 2y = 6$ avec $y(0) = 5$. Solution : $y(x) = 2e^{-2x} + 3$.</p>`,
+        astuces: `<p>Pour l'intégration par parties, choisissez $v(x)$ selon l'ordre ALPES (Arctan, Ln, Polynôme, Exp, Sin/Cos).</p>`
+      }
+    ];
+
+    const QUIZ_QUESTIONS = [
+      {
+        q: "Quelle est la valeur de $\lim_{x \to 0} \frac{\sin(5x)}{2x}$ ?",
+        options: ["$0$", "$\frac{5}{2}$", "$\frac{2}{5}$", "$1$"],
+        correct: 1,
+        explanation: "Car $\sin(5x) \sim 5x$ au voisinage de $0$, donc $\frac{\sin(5x)}{2x} \to \frac{5}{2}$."
+      },
+      {
+        q: "Le module du nombre complexe $z = 3 - 4i$ est égal à :",
+        options: ["$7$", "$1$", "$5$", "$25$"],
+        correct: 2,
+        explanation: "$|z| = \sqrt{3^2 + (-4)^2} = \sqrt{9 + 16} = \sqrt{25} = 5$."
+      },
+      {
+        q: "Quelle est la dérivée de la fonction $f(x) = \ln(x^2 + 1)$ ?",
+        options: ["$\frac{1}{x^2 + 1}$", "$\frac{2x}{x^2 + 1}$", "$2x\ln(x^2+1)$", "$\frac{x}{x^2+1}$"],
+        correct: 1,
+        explanation: "La dérivée de $\ln(u)$ est $\frac{u'}{u}$, ici $u(x)=x^2+1$ donc $u'(x)=2x$."
+      }
+    ];
+
+    // STATE
+    let courses = JSON.parse(localStorage.getItem('mathexcellence_courses')) || DEFAULT_COURSES;
+    let masteredIds = JSON.parse(localStorage.getItem('mathexcellence_mastered')) || [];
+    let currentCycle = 'all';
+    let currentTrack = 'all';
+    let currentType = 'all';
+    let searchQuery = '';
+    let activeCourseId = null;
+    let activeReaderTab = 'cours';
+    let quizIndex = 0;
+    let quizScore = 0;
+
+    // INIT
+    document.addEventListener('DOMContentLoaded', () => {
+      populateTrackSelect();
+      renderTracks();
+      renderCourses();
+      updateProgressUI();
+      lucide.createIcons();
+      renderMath();
+    });
+
+    function renderMath(el = document.body) {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(el, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
+      }
+    }
+
+    function selectCycle(cycle) {
+      currentCycle = cycle;
+      currentTrack = 'all';
+      document.querySelectorAll('.pole-card').forEach(c => {
+        c.classList.remove('border-2', 'border-indigo-600', 'border-amber-500', 'border-emerald-600');
+        c.classList.add('border', 'border-slate-200');
+      });
+      if (cycle === 'lycee') document.getElementById('pole-lycee').classList.add('border-2', 'border-indigo-600');
+      if (cycle === 'concours') document.getElementById('pole-concours').classList.add('border-2', 'border-amber-500');
+      if (cycle === 'superieur') document.getElementById('pole-superieur').classList.add('border-2', 'border-emerald-600');
+      
+      renderTracks();
+      renderCourses();
+    }
+
+    function selectTrack(trackId) {
+      currentTrack = (currentTrack === trackId) ? 'all' : trackId;
+      renderTracks();
+      renderCourses();
+      document.getElementById('library-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function selectType(type) {
+      currentType = type;
+      document.querySelectorAll('.type-btn').forEach(btn => {
+        if (btn.dataset.type === type) {
+          btn.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+          btn.classList.remove('text-slate-600');
+        } else {
+          btn.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+          btn.classList.add('text-slate-600');
+        }
+      });
+      renderCourses();
+    }
+
+    function handleSearch(val) {
+      searchQuery = val.trim().toLowerCase();
+      renderCourses();
+    }
+
+    function resetFilters() {
+      currentCycle = 'all';
+      currentTrack = 'all';
+      currentType = 'all';
+      searchQuery = '';
+      document.getElementById('search-input').value = '';
+      selectType('all');
+      renderTracks();
+      renderCourses();
+    }
+
+    function renderTracks() {
+      const grid = document.getElementById('tracks-grid');
+      const filteredTracks = currentCycle === 'all' ? TRACKS : TRACKS.filter(t => t.cycle === currentCycle);
+
+      grid.innerHTML = filteredTracks.map(t => {
+        const count = courses.filter(c => c.trackId === t.id).length;
+        const isSelected = currentTrack === t.id;
+        const colorMap = {
+          indigo: isSelected ? 'bg-indigo-600 text-white border-indigo-600 shadow-md' : 'bg-slate-50 hover:bg-indigo-50 text-slate-800 border-slate-200',
+          amber: isSelected ? 'bg-amber-500 text-white border-amber-500 shadow-md' : 'bg-slate-50 hover:bg-amber-50 text-slate-800 border-slate-200',
+          emerald: isSelected ? 'bg-emerald-600 text-white border-emerald-600 shadow-md' : 'bg-slate-50 hover:bg-emerald-50 text-slate-800 border-slate-200'
+        };
+        const iconColor = isSelected ? 'text-white' : (t.color === 'indigo' ? 'text-indigo-600' : t.color === 'amber' ? 'text-amber-600' : 'text-emerald-600');
+
+        return `
+          <button onclick="selectTrack('${t.id}')" class="p-3.5 rounded-xl border text-left transition-all flex items-center justify-between gap-2 ${colorMap[t.color]}">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <i data-lucide="${t.icon}" class="w-4 h-4 shrink-0 ${iconColor}"></i>
+              <div class="truncate">
+                <div class="font-bold text-xs sm:text-sm truncate">${t.short}</div>
+                <div class="text-[11px] opacity-80 truncate">${t.name}</div>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full text-[11px] font-bold ${isSelected ? 'bg-white/20 text-white' : 'bg-white text-slate-600 border border-slate-200'}">${count}</span>
+          </button>
+        `;
+      }).join('');
+      lucide.createIcons();
+    }
+
+    function renderCourses() {
+      const grid = document.getElementById('courses-grid');
+      const empty = document.getElementById('empty-state');
+      document.getElementById('stat-courses-count').textContent = courses.length;
+
+      const filtered = courses.filter(c => {
+        const trackObj = TRACKS.find(t => t.id === c.trackId);
+        const matchCycle = currentCycle === 'all' || (trackObj && trackObj.cycle === currentCycle);
+        const matchTrack = currentTrack === 'all' || c.trackId === currentTrack;
+        const matchType = currentType === 'all' || c.type === currentType;
+        const matchSearch = !searchQuery || c.title.toLowerCase().includes(searchQuery) || c.desc.toLowerCase().includes(searchQuery);
+        return matchCycle && matchTrack && matchType && matchSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+        return;
+      }
+      empty.classList.add('hidden');
+
+      grid.innerHTML = filtered.map(c => {
+        const track = TRACKS.find(t => t.id === c.trackId) || { short: c.trackId, color: 'indigo', icon: 'book-open' };
+        const isMastered = masteredIds.includes(c.id);
+        const badgeColors = {
+          indigo: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+          amber: 'bg-amber-50 text-amber-700 border-amber-200',
+          emerald: 'bg-emerald-50 text-emerald-700 border-emerald-200'
+        };
+
+        return `
+          <article onclick="openReader('${c.id}')" class="group bg-white rounded-2xl border border-slate-200/90 p-5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold border ${badgeColors[track.color]}">
+                  <i data-lucide="${track.icon}" class="w-3.5 h-3.5"></i>
+                  ${track.short}
+                </span>
+                <div class="flex items-center gap-1.5">
+                  ${isMastered ? '<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[11px] font-bold">✓ Maîtrisé</span>' : ''}
+                  <span class="text-xs font-medium text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full">${c.type}</span>
+                </div>
+              </div>
+              <h3 class="font-display font-bold text-lg text-slate-900 group-hover:text-indigo-600 transition-colors leading-snug mb-2">${c.title}</h3>
+              <p class="text-sm text-slate-600 line-clamp-2 leading-relaxed">${c.desc}</p>
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold">
+              <div class="flex items-center gap-3 text-slate-400">
+                <span class="flex items-center gap-1"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> Cours</span>
+                <span class="flex items-center gap-1"><i data-lucide="pen-tool" class="w-3.5 h-3.5"></i> Exos</span>
+              </div>
+              <span class="text-indigo-600 group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                Ouvrir <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </span>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+      renderMath(grid);
+    }
+
+    // READER MODAL
+    function openReader(courseId) {
+      activeCourseId = courseId;
+      const course = courses.find(c => c.id === courseId);
+      if (!course) return;
+      const track = TRACKS.find(t => t.id === course.trackId) || { short: course.trackId };
+
+      document.getElementById('reader-track-badge').textContent = track.short;
+      document.getElementById('reader-type-badge').textContent = course.type;
+      document.getElementById('reader-title').textContent = course.title;
+
+      updateMasteredButton();
+      switchReaderTab('cours');
+      document.getElementById('reader-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeReader() {
+      document.getElementById('reader-modal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function switchReaderTab(tab) {
+      activeReaderTab = tab;
+      const course = courses.find(c => c.id === activeCourseId);
+      if (!course) return;
+
+      document.querySelectorAll('.rtab-btn').forEach(btn => {
+        btn.classList.remove('bg-indigo-600', 'text-white', 'shadow-sm');
+        btn.classList.add('text-slate-700', 'hover:bg-slate-200/70');
+      });
+      const activeBtn = document.getElementById('rtab-' + tab);
+      activeBtn.classList.add('bg-indigo-600', 'text-white', 'shadow-sm');
+      activeBtn.classList.remove('text-slate-700', 'hover:bg-slate-200/70');
+
+      const body = document.getElementById('reader-content-body');
+      body.innerHTML = course[tab] || '<p class="text-slate-500 italic">Contenu en cours de rédaction par le professeur.</p>';
+      lucide.createIcons();
+      renderMath(body);
+    }
+
+    function toggleMasteredCurrent() {
+      if (!activeCourseId) return;
+      if (masteredIds.includes(activeCourseId)) {
+        masteredIds = masteredIds.filter(id => id !== activeCourseId);
+      } else {
+        masteredIds.push(activeCourseId);
+      }
+      localStorage.setItem('mathexcellence_mastered', JSON.stringify(masteredIds));
+      updateMasteredButton();
+      updateProgressUI();
+      renderCourses();
+    }
+
+    function updateMasteredButton() {
+      const btn = document.getElementById('mastered-btn');
+      const isMastered = masteredIds.includes(activeCourseId);
+      if (isMastered) {
+        btn.className = 'px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-emerald-600 text-white border border-emerald-600 flex items-center gap-1.5';
+        btn.innerHTML = '<i data-lucide="check-circle-2" class="w-4 h-4"></i><span>Chapitre maîtrisé ✓</span>';
+      } else {
+        btn.className = 'px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-700 border border-slate-300 hover:border-emerald-500 flex items-center gap-1.5';
+        btn.innerHTML = '<i data-lucide="circle" class="w-4 h-4"></i><span>Marquer comme maîtrisé</span>';
+      }
+      lucide.createIcons();
+    }
+
+    function updateProgressUI() {
+      document.getElementById('progress-badge').textContent = `${masteredIds.length} maîtrisé${masteredIds.length > 1 ? 's' : ''}`;
+    }
+
+    // QUIZ MODAL
+    function openQuizModal() {
+      quizIndex = 0;
+      quizScore = 0;
+      renderQuizStep();
+      document.getElementById('quiz-modal').classList.remove('hidden');
+    }
+
+    function closeQuizModal() {
+      document.getElementById('quiz-modal').classList.add('hidden');
+    }
+
+    function renderQuizStep() {
+      const body = document.getElementById('quiz-body');
+      if (quizIndex >= QUIZ_QUESTIONS.length) {
+        body.innerHTML = `
+          <div class="text-center py-6 space-y-4">
+            <div class="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto font-display font-extrabold text-2xl">
+              ${quizScore}/${QUIZ_QUESTIONS.length}
+            </div>
+            <h4 class="font-display font-bold text-xl text-slate-900">Quiz Terminé !</h4>
+            <p class="text-sm text-slate-600">Continuez à vous entraîner sur les fiches résumés et séries corrigées.</p>
+            <button onclick="openQuizModal()" class="px-5 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold text-sm">Recommencer le Quiz</button>
+          </div>
+        `;
+        return;
+      }
+
+      const item = QUIZ_QUESTIONS[quizIndex];
+      body.innerHTML = `
+        <div class="text-xs font-bold text-violet-600 uppercase">Question ${quizIndex + 1} sur ${QUIZ_QUESTIONS.length}</div>
+        <div class="text-base font-bold text-slate-900">${item.q}</div>
+        <div class="space-y-2.5 pt-2">
+          ${item.options.map((opt, idx) => `
+            <button onclick="answerQuiz(${idx})" id="qopt-${idx}" class="w-full text-left p-3.5 rounded-xl border border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/50 text-sm font-medium transition-all">
+              ${opt}
+            </button>
+          `).join('')}
+        </div>
+        <div id="quiz-feedback" class="hidden p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700"></div>
+      `;
+      renderMath(body);
+    }
+
+    function answerQuiz(selectedIdx) {
+      const item = QUIZ_QUESTIONS[quizIndex];
+      const fb = document.getElementById('quiz-feedback');
+      if (!fb.classList.contains('hidden')) return;
+
+      if (selectedIdx === item.correct) {
+        quizScore++;
+        document.getElementById('qopt-' + selectedIdx).classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-900');
+      } else {
+        document.getElementById('qopt-' + selectedIdx).classList.add('bg-rose-50', 'border-rose-500', 'text-rose-900');
+        document.getElementById('qopt-' + item.correct).classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-900');
+      }
+
+      fb.innerHTML = `
+        <p class="font-bold mb-1">${selectedIdx === item.correct ? '✓ Exact !' : '✗ Pas tout à fait'}</p>
+        <p class="mb-3">${item.explanation}</p>
+        <button onclick="quizIndex++; renderQuizStep();" class="px-4 py-1.5 rounded-lg bg-slate-900 text-white font-semibold">Question suivante →</button>
+      `;
+      fb.classList.remove('hidden');
+      renderMath(fb);
+    }
+
+    // TEACHER STUDIO
+    function populateTrackSelect() {
+      const sel = document.getElementById('f-track');
+      sel.innerHTML = TRACKS.map(t => `<option value="${t.id}">${t.short} — ${t.name}</option>`).join('');
+    }
+
+    function openTeacherModal() {
+      renderManageCourses();
+      document.getElementById('teacher-modal').classList.remove('hidden');
+    }
+
+    function closeTeacherModal() {
+      document.getElementById('teacher-modal').classList.add('hidden');
+    }
+
+    function insertSnippet(type) {
+      const ta = document.getElementById('f-cours');
+      const snippets = {
+        def: `<div class="math-box-def p-4 rounded-r-xl mb-4"><div class="font-bold text-blue-800 text-sm mb-1">Définition</div><p>Écrire la définition ici avec $x \in \mathbb{R}$...</p></div>\n`,
+        thm: `<div class="math-box-thm p-4 rounded-r-xl mb-4"><div class="font-bold text-violet-800 text-sm mb-1">Théorème</div><p>Énoncé du théorème : $$\forall x \in I, \quad f'(x) \ge 0$$</p></div>\n`,
+        prop: `<div class="math-box-prop p-4 rounded-r-xl mb-4"><div class="font-bold text-emerald-800 text-sm mb-1">Propriété</div><p>Propriété importante à retenir...</p></div>\n`,
+        ex: `<div class="math-box-ex p-4 rounded-r-xl mb-4"><div class="font-bold text-amber-800 text-sm mb-1">Exemple d'application</div><p>Calculons...</p></div>\n`
+      };
+      ta.value += snippets[type];
+      updateLivePreview();
+    }
+
+    function updateLivePreview() {
+      const val = document.getElementById('f-cours').value;
+      const box = document.getElementById('live-preview-box');
+      box.innerHTML = val || '<p class="text-slate-400 italic">Tapez votre cours à gauche pour voir le rendu mathématique instantané...</p>';
+      renderMath(box);
+    }
+
+    function saveNewCourse(e) {
+      e.preventDefault();
+      const newCourse = {
+        id: 'c-' + Date.now(),
+        trackId: document.getElementById('f-track').value,
+        type: document.getElementById('f-type').value,
+        title: document.getElementById('f-title').value,
+        desc: document.getElementById('f-desc').value,
+        cours: document.getElementById('f-cours').value,
+        resume: document.getElementById('f-resume').value || '<p>Fiche résumé à compléter.</p>',
+        exercices: document.getElementById('f-exercices').value || '<p>Série d’exercices à compléter.</p>',
+        astuces: document.getElementById('f-astuces').value || '<p>Astuces méthodologiques à compléter.</p>'
+      };
+      courses.unshift(newCourse);
+      localStorage.setItem('mathexcellence_courses', JSON.stringify(courses));
+      document.getElementById('teacher-form').reset();
+      updateLivePreview();
+      renderTracks();
+      renderCourses();
+      renderManageCourses();
+      alert('Votre chapitre a bien été ajouté à la bibliothèque MathExcellence !');
+    }
+
+    function deleteCourse(id) {
+      if (!confirm('Supprimer ce chapitre ?')) return;
+      courses = courses.filter(c => c.id !== id);
+      localStorage.setItem('mathexcellence_courses', JSON.stringify(courses));
+      renderTracks();
+      renderCourses();
+      renderManageCourses();
+    }
+
+    function renderManageCourses() {
+      document.getElementById('manage-count').textContent = courses.length;
+      const list = document.getElementById('manage-courses-list');
+      list.innerHTML = courses.map(c => {
+        const track = TRACKS.find(t => t.id === c.trackId) || { short: c.trackId };
+        return `
+          <div class="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-white border border-slate-200 text-xs">
+            <div class="truncate">
+              <span class="font-bold text-indigo-600">[${track.short}]</span>
+              <span class="font-semibold text-slate-800">${c.title}</span>
+            </div>
+            <button onclick="deleteCourse('${c.id}')" class="p-1.5 rounded-lg text-rose-600 hover:bg-rose-50 shrink-0" title="Supprimer">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+            </button>
+          </div>
+        `;
+      }).join('');
+      lucide.createIcons();
+    }
+
+    function exportCoursesJSON() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(courses, null, 2));
+      const a = document.createElement('a');
+      a.setAttribute("href", dataStr);
+      a.setAttribute("download", "mathexcellence-cours.json");
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+  </script>
+</body>
+</html>
