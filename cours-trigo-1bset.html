@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcul trigonométrique – Cours 1BSET</title>
+<style>
+:root{--bg:#fbfaf7;--tx:#1d2330;--mut:#5b6475;--ac:#1f4e8c;--def:#e8eff9;--rem:#f3f0e6;--app:#eaf4ec;--exo:#fbeaea;--bd:#cfd6e2}
+@media (prefers-color-scheme:dark){:root{--bg:#14171f;--tx:#e6e9f0;--mut:#a0a8b8;--ac:#7db0f0;--def:#1c2a40;--rem:#25241d;--app:#1a2e22;--exo:#341e22;--bd:#3a4357}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:18px/1.65 Georgia,"Times New Roman",serif}
+main{max-width:46rem;margin:0 auto;padding:2rem 1.2rem 4rem}
+h1{font-size:2.2rem;margin:.2em 0 .1em}
+h2{font-size:1.6rem;margin:2.4em 0 .6em;padding-bottom:.2em;border-bottom:2px solid var(--ac);color:var(--ac)}
+h3{font-size:1.2rem;margin:1.8em 0 .5em}
+p{margin:.5em 0}
+.sub{color:var(--mut);margin-top:0}
+nav{background:var(--rem);padding:.8rem 1.2rem;border-radius:6px;margin:1.2rem 0}
+nav a{color:var(--ac);margin-right:1rem;white-space:nowrap}
+.box{padding:.7rem 1rem;margin:1rem 0;border-radius:6px;border-left:5px solid var(--ac)}
+.box>b:first-child{display:block;margin-bottom:.2rem}
+.def{background:var(--def)}.rem{background:var(--rem);border-color:var(--mut)}
+.app{background:var(--app);border-color:#3f8f55}.exo{background:var(--exo);border-color:#c0505f}
+.ex{border-left:3px solid var(--bd);padding-left:1rem;margin:1rem 0}
+ol,ul{margin:.4em 0;padding-left:1.5rem}
+.f{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1.2;margin:0 .15em;font-size:.95em}
+.f i{font-style:normal;padding:0 .2em}.f i:first-child{border-bottom:1px solid currentColor}
+.m{font-family:"Cambria Math","STIX Two Math",Georgia,serif;font-style:italic}
+.c{text-align:center;margin:.7rem 0}
+table{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.95em;text-align:center}
+th,td{border:1px solid var(--bd);padding:.4rem .5rem}
+th{background:var(--def)}
+</style>
+</head>
+<body>
+<main>
+<p><a href="cours.html">← Retour aux Fiches de Cours</a></p>
+<h1>Calcul trigonométrique</h1>
+<p class="sub">Cours – 1<sup>re</sup> année Bac Sciences expérimentales / Techniques</p>
+<nav><a href="#rap">1. Rappels & Angles associés</a><a href="#add">2. Formules d'addition</a><a href="#dup">3. Duplication & Linéarisation</a><a href="#eq">4. Équations & Inéquations</a></nav>
+
+<h2 id="rap">1. Rappels et angles associés</h2>
+
+<div class="box exo"><b>Activité 1</b>
+On considère le cercle trigonométrique <span class="m">(C)</span> muni d'un repère orthonormé direct <span class="m">(O, i, j)</span> et <span class="m">M</span> le point d'abscisse curviligne <span class="m">x</span>.
+<ol><li>Placer sur <span class="m">(C)</span> les points associés à <span class="m">−x</span>, <span class="m">π − x</span>, <span class="m">π + x</span> et <span class="m"><span class="f"><i>π</i><i>2</i></span> − x</span>.</li>
+<li>En déduire par symétrie leurs cosinus et sinus en fonction de <span class="m">cos x</span> et <span class="m">sin x</span>.</li></ol></div>
+
+<h3>1.1 Relations fondamentales et valeurs usuelles</h3>
+<div class="box def"><b>Propriétés fondamentales</b>
+Pour tout réel <span class="m">x</span> et tout entier relatif <span class="m">k ∈ ℤ</span> :
+<ul><li><span class="m">−1 ≤ cos x ≤ 1</span> &nbsp;et&nbsp; <span class="m">−1 ≤ sin x ≤ 1</span></li>
+<li><span class="m">cos²x + sin²x = 1</span></li>
+<li><span class="m">cos(x + 2kπ) = cos x</span> &nbsp;et&nbsp; <span class="m">sin(x + 2kπ) = sin x</span></li>
+<li>Pour <span class="m">x ≠ <span class="f"><i>π</i><i>2</i></span> + kπ</span> : <span class="m">tan x = <span class="f"><i>sin x</i><i>cos x</i></span></span>, <span class="m">tan(x + kπ) = tan x</span> et <span class="m">1 + tan²x = <span class="f"><i>1</i><i>cos²x</i></span></span>.</li></ul></div>
+
+<table>
+<tr><th><span class="m">x</span></th><th>0</th><th><span class="f"><i>π</i><i>6</i></span></th><th><span class="f"><i>π</i><i>4</i></span></th><th><span class="f"><i>π</i><i>3</i></span></th><th><span class="f"><i>π</i><i>2</i></span></th></tr>
+<tr><th><span class="m">sin x</span></th><td>0</td><td><span class="f"><i>1</i><i>2</i></span></td><td><span class="f"><i>√2</i><i>2</i></span></td><td><span class="f"><i>√3</i><i>2</i></span></td><td>1</td></tr>
+<tr><th><span class="m">cos x</span></th><td>1</td><td><span class="f"><i>√3</i><i>2</i></span></td><td><span class="f"><i>√2</i><i>2</i></span></td><td><span class="f"><i>1</i><i>2</i></span></td><td>0</td></tr>
+<tr><th><span class="m">tan x</span></th><td>0</td><td><span class="f"><i>√3</i><i>3</i></span></td><td>1</td><td>√3</td><td>—</td></tr>
+</table>
+
+<h3>1.2 Angles associés</h3>
+<div class="box def"><b>Formules des angles associés</b>
+Pour tout réel <span class="m">x</span> :
+<ul><li><span class="m">cos(−x) = cos x</span> &nbsp;|&nbsp; <span class="m">sin(−x) = −sin x</span> &nbsp;|&nbsp; <span class="m">tan(−x) = −tan x</span></li>
+<li><span class="m">cos(π − x) = −cos x</span> &nbsp;|&nbsp; <span class="m">sin(π − x) = sin x</span> &nbsp;|&nbsp; <span class="m">tan(π − x) = −tan x</span></li>
+<li><span class="m">cos(π + x) = −cos x</span> &nbsp;|&nbsp; <span class="m">sin(π + x) = −sin x</span> &nbsp;|&nbsp; <span class="m">tan(π + x) = tan x</span></li>
+<li><span class="m">cos(<span class="f"><i>π</i><i>2</i></span> − x) = sin x</span> &nbsp;|&nbsp; <span class="m">sin(<span class="f"><i>π</i><i>2</i></span> − x) = cos x</span></li>
+<li><span class="m">cos(<span class="f"><i>π</i><i>2</i></span> + x) = −sin x</span> &nbsp;|&nbsp; <span class="m">sin(<span class="f"><i>π</i><i>2</i></span> + x) = cos x</span></li></ul></div>
+
+<div class="box app"><b>Application 1</b>
+Simplifier pour tout <span class="m">x ∈ ℝ</span> :
+<div class="c m">A(x) = cos(π + x) + sin(<span class="f"><i>π</i><i>2</i></span> − x) − sin(π − x) + cos(<span class="f"><i>π</i><i>2</i></span> + x)</div></div>
+
+<h2 id="add">2. Formules d'addition</h2>
+<div class="box def"><b>Propriété (Formules d'addition)</b>
+Pour tous réels <span class="m">a</span> et <span class="m">b</span> :
+<ul><li><span class="m">cos(a − b) = cos a cos b + sin a sin b</span></li>
+<li><span class="m">cos(a + b) = cos a cos b − sin a sin b</span></li>
+<li><span class="m">sin(a + b) = sin a cos b + cos a sin b</span></li>
+<li><span class="m">sin(a − b) = sin a cos b − cos a sin b</span></li>
+<li><span class="m">tan(a + b) = <span class="f"><i>tan a + tan b</i><i>1 − tan a tan b</i></span></span> &nbsp;et&nbsp; <span class="m">tan(a − b) = <span class="f"><i>tan a − tan b</i><i>1 + tan a tan b</i></span></span> (sous réserve d'existence)</li></ul></div>
+
+<div class="ex"><b>Exemple</b>
+Calculer <span class="m">cos(<span class="f"><i>π</i><i>12</i></span>)</span> et <span class="m">sin(<span class="f"><i>π</i><i>12</i></span>)</span> en remarquant que <span class="m"><span class="f"><i>π</i><i>12</i></span> = <span class="f"><i>π</i><i>3</i></span> − <span class="f"><i>π</i><i>4</i></span></span> :
+<div class="c m">cos(<span class="f"><i>π</i><i>12</i></span>) = cos(<span class="f"><i>π</i><i>3</i></span>)cos(<span class="f"><i>π</i><i>4</i></span>) + sin(<span class="f"><i>π</i><i>3</i></span>)sin(<span class="f"><i>π</i><i>4</i></span>) = <span class="f"><i>1</i><i>2</i></span>·<span class="f"><i>√2</i><i>2</i></span> + <span class="f"><i>√3</i><i>2</i></span>·<span class="f"><i>√2</i><i>2</i></span> = <span class="f"><i>√2 + √6</i><i>4</i></span></div></div>
+
+<div class="box app"><b>Application 2</b>
+<ol><li>Calculer <span class="m">cos(<span class="f"><i>7π</i><i>12</i></span>)</span> et <span class="m">tan(<span class="f"><i>π</i><i>12</i></span>)</span>.</li>
+<li>Montrer que <span class="m">cos x + sin x = √2 cos(x − <span class="f"><i>π</i><i>4</i></span>)</span> pour tout <span class="m">x ∈ ℝ</span>.</li></ol></div>
+
+<h2 id="dup">3. Formules de duplication et de linéarisation</h2>
+<div class="box def"><b>Formules de l'angle double (duplication)</b>
+Pour tout réel <span class="m">x</span> :
+<ul><li><span class="m">sin(2x) = 2 sin x cos x</span></li>
+<li><span class="m">cos(2x) = cos²x − sin²x = 2cos²x − 1 = 1 − 2sin²x</span></li>
+<li><span class="m">tan(2x) = <span class="f"><i>2 tan x</i><i>1 − tan²x</i></span></span> (pour <span class="m">x ≠ <span class="f"><i>π</i><i>4</i></span> + k<span class="f"><i>π</i><i>2</i></span></span> et <span class="m">x ≠ <span class="f"><i>π</i><i>2</i></span> + kπ</span>)</li></ul></div>
+
+<div class="box def"><b>Formules de linéarisation</b>
+Pour tout réel <span class="m">x</span> :
+<div class="c m">cos²x = <span class="f"><i>1 + cos(2x)</i><i>2</i></span> &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; sin²x = <span class="f"><i>1 − cos(2x)</i><i>2</i></span></div></div>
+
+<div class="box rem"><b>Formules en fonction de <span class="m">t = tan(<span class="f"><i>x</i><i>2</i></span>)</span></b>
+Pour <span class="m">x ≠ π + 2kπ</span>, en posant <span class="m">t = tan(<span class="f"><i>x</i><i>2</i></span>)</span> :
+<div class="c m">cos x = <span class="f"><i>1 − t²</i><i>1 + t²</i></span> &nbsp;&nbsp;|&nbsp;&nbsp; sin x = <span class="f"><i>2t</i><i>1 + t²</i></span> &nbsp;&nbsp;|&nbsp;&nbsp; tan x = <span class="f"><i>2t</i><i>1 − t²</i></span></div></div>
+
+<div class="box app"><b>Application 3</b>
+Sachant que <span class="m">cos x = −<span class="f"><i>3</i><i>5</i></span></span> et <span class="m">x ∈ [<span class="f"><i>π</i><i>2</i></span>, π]</span>, calculer <span class="m">sin x</span>, <span class="m">cos(2x)</span>, <span class="m">sin(2x)</span> et <span class="m">cos(<span class="f"><i>x</i><i>2</i></span>)</span>.</div>
+
+<h2 id="eq">4. Équations et inéquations trigonométriques</h2>
+<div class="box def"><b>Équations fondamentales (<span class="m">k ∈ ℤ</span>)</b>
+<ul><li><span class="m">cos x = cos α ⟺ x = α + 2kπ &nbsp;ou&nbsp; x = −α + 2kπ</span></li>
+<li><span class="m">sin x = sin α ⟺ x = α + 2kπ &nbsp;ou&nbsp; x = π − α + 2kπ</span></li>
+<li><span class="m">tan x = tan α ⟺ x = α + kπ</span> (avec <span class="m">x, α ≠ <span class="f"><i>π</i><i>2</i></span> + kπ</span>)</li></ul></div>
+
+<div class="box rem"><b>Transformation de <span class="m">a cos x + b sin x = c</span></b>
+Si <span class="m">(a, b) ≠ (0, 0)</span>, on pose <span class="m">r = √(a² + b²)</span>. Il existe un unique <span class="m">φ ∈ [0, 2π[</span> tel que <span class="m">cos φ = <span class="f"><i>a</i><i>r</i></span></span> et <span class="m">sin φ = <span class="f"><i>b</i><i>r</i></span></span>, d'où :
+<div class="c m">a cos x + b sin x = r cos(x − φ)</div>
+L'équation admet des solutions si et seulement si <span class="m">|c| ≤ √(a² + b²)</span>.</div>
+
+<div class="box exo"><b>Exercice de synthèse</b>
+<ol><li>Résoudre dans <span class="m">ℝ</span> puis dans <span class="m">[0, 2π[</span> : <span class="m">2cos²x − 3cos x + 1 = 0</span>.</li>
+<li>Résoudre dans <span class="m">[−π, π]</span> : <span class="m">√3 cos x − sin x = 1</span>.</li>
+<li>Résoudre dans <span class="m">[0, 2π[</span> l'inéquation : <span class="m">2sin x − √3 ≥ 0</span>.</li></ol></div>
+</main>
+</body>
+</html>
