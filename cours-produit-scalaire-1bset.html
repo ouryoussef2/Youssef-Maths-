@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Étude analytique du produit scalaire – Cours 1BSET</title>
+<style>
+:root{--bg:#fbfaf7;--tx:#1d2330;--mut:#5b6475;--ac:#1f4e8c;--def:#e8eff9;--rem:#f3f0e6;--app:#eaf4ec;--exo:#fbeaea;--bd:#cfd6e2}
+@media (prefers-color-scheme:dark){:root{--bg:#14171f;--tx:#e6e9f0;--mut:#a0a8b8;--ac:#7db0f0;--def:#1c2a40;--rem:#25241d;--app:#1a2e22;--exo:#341e22;--bd:#3a4357}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:18px/1.65 Georgia,"Times New Roman",serif}
+main{max-width:46rem;margin:0 auto;padding:2rem 1.2rem 4rem}
+h1{font-size:2.2rem;margin:.2em 0 .1em}
+h2{font-size:1.6rem;margin:2.4em 0 .6em;padding-bottom:.2em;border-bottom:2px solid var(--ac);color:var(--ac)}
+h3{font-size:1.2rem;margin:1.8em 0 .5em}
+p{margin:.5em 0}
+.sub{color:var(--mut);margin-top:0}
+nav{background:var(--rem);padding:.8rem 1.2rem;border-radius:6px;margin:1.2rem 0}
+nav a{color:var(--ac);margin-right:1rem;white-space:nowrap}
+.box{padding:.7rem 1rem;margin:1rem 0;border-radius:6px;border-left:5px solid var(--ac)}
+.box>b:first-child{display:block;margin-bottom:.2rem}
+.def{background:var(--def)}.rem{background:var(--rem);border-color:var(--mut)}
+.app{background:var(--app);border-color:#3f8f55}.exo{background:var(--exo);border-color:#c0505f}
+.ex{border-left:3px solid var(--bd);padding-left:1rem;margin:1rem 0}
+ol,ul{margin:.4em 0;padding-left:1.5rem}
+.f{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1.2;margin:0 .15em;font-size:.95em}
+.f i{font-style:normal;padding:0 .2em}.f i:first-child{border-bottom:1px solid currentColor}
+.m{font-family:"Cambria Math","STIX Two Math",Georgia,serif;font-style:italic}
+.c{text-align:center;margin:.7rem 0}
+</style>
+</head>
+<body>
+<main>
+<p><a href="cours.html">← Retour aux Fiches de Cours</a></p>
+<h1>Étude analytique du produit scalaire</h1>
+<p class="sub">Cours – 1<sup>re</sup> année Bac Sciences expérimentales / Techniques</p>
+<nav><a href="#ps">1. Expression analytique</a><a href="#dr">2. Droite dans le plan</a><a href="#ce">3. Étude analytique du cercle</a></nav>
+
+<p class="rem box"><b>Cadre de travail</b> Dans tout ce chapitre, le plan <span class="m">(𝒫)</span> est rapporté à un <b>repère orthonormé direct</b> <span class="m">(O, i, j)</span>.</p>
+
+<h2 id="ps">1. Expression analytique du produit scalaire et de la norme</h2>
+
+<div class="box exo"><b>Activité 1</b>
+Soient <span class="m">u(x, y) = xi + yj</span> et <span class="m">v(x', y') = x'i + y'j</span> deux vecteurs dans le repère orthonormé <span class="m">(O, i, j)</span>.
+<ol><li>Rappeler les valeurs de <span class="m">i·i</span>, <span class="m">j·j</span> et <span class="m">i·j</span>.</li>
+<li>En utilisant la bilinéarité du produit scalaire, développer <span class="m">(xi + yj)·(x'i + y'j)</span>.</li></ol></div>
+
+<h3>1.1 Produit scalaire, norme et distance</h3>
+<div class="box def"><b>Propriétés fondamentales</b>
+Soient <span class="m">u(x, y)</span> et <span class="m">v(x', y')</span> deux vecteurs, et <span class="m">A(x<sub>A</sub>, y<sub>A</sub>)</span>, <span class="m">B(x<sub>B</sub>, y<sub>B</sub>)</span> deux points :
+<ul><li><b>Expression analytique du produit scalaire :</b> <span class="m">u · v = xx' + yy'</span></li>
+<li><b>Orthogonalité :</b> <span class="m">u ⊥ v ⟺ u · v = 0 ⟺ xx' + yy' = 0</span></li>
+<li><b>Norme d'un vecteur :</b> <span class="m">‖u‖ = √(x² + y²)</span></li>
+<li><b>Distance entre deux points :</b> <span class="m">AB = ‖AB‖ = √((x<sub>B</sub> − x<sub>A</sub>)² + (y<sub>B</sub> − y<sub>A</sub>)²)</span></li></ul></div>
+
+<div class="ex"><b>Exemple</b>
+Soient <span class="m">u(2, −3)</span> et <span class="m">v(6, 4)</span>. On a <span class="m">u · v = 2 × 6 + (−3) × 4 = 12 − 12 = 0</span>, donc <span class="m">u ⊥ v</span>. De plus <span class="m">‖u‖ = √(2² + (−3)²) = √13</span>.</div>
+
+<h3>1.2 Expression de <span class="m">cos(u, v)</span> et <span class="m">sin(u, v)</span></h3>
+<div class="box def"><b>Propriété</b>
+Si <span class="m">u(x, y)</span> et <span class="m">v(x', y')</span> sont deux vecteurs non nuls et <span class="m">θ = (u, v)</span> :
+<div class="c m">cos θ = <span class="f"><i>u · v</i><i>‖u‖ · ‖v‖</i></span> = <span class="f"><i>xx' + yy'</i><i>√(x² + y²)√(x'² + y'²)</i></span> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; sin θ = <span class="f"><i>det(u, v)</i><i>‖u‖ · ‖v‖</i></span> = <span class="f"><i>xy' − yx'</i><i>√(x² + y²)√(x'² + y'²)</i></span></div></div>
+
+<div class="box app"><b>Application 1</b>
+On considère les points <span class="m">A(1, 2)</span>, <span class="m">B(4, 3)</span> et <span class="m">C(2, −1)</span>.
+<ol><li>Calculer <span class="m">AB · AC</span>, <span class="m">AB</span> et <span class="m">AC</span>.</li>
+<li>En déduire la nature du triangle <span class="m">ABC</span> puis calculer <span class="m">cos(BAC)</span>.</li></ol></div>
+
+<h2 id="dr">2. Droite dans le plan (vecteur normal et distance)</h2>
+
+<h3>2.1 Vecteur normal et équation cartésienne</h3>
+<div class="box def"><b>Définition et propriété</b>
+<ul><li>Un vecteur non nul <span class="m">n</span> est dit <b>normal</b> à une droite <span class="m">(D)</span> lorsqu'il est orthogonal à tout vecteur directeur de <span class="m">(D)</span>.</li>
+<li>Si <span class="m">(D)</span> a pour équation cartésienne <span class="m">ax + by + c = 0</span> avec <span class="m">(a, b) ≠ (0, 0)</span>, alors <span class="m">n(a, b)</span> est un vecteur normal à <span class="m">(D)</span> et <span class="m">u(−b, a)</span> est un vecteur directeur de <span class="m">(D)</span>.</li>
+<li>La droite passant par <span class="m">A(x<sub>A</sub>, y<sub>A</sub>)</span> et de vecteur normal <span class="m">n(a, b)</span> est l'ensemble des points <span class="m">M(x, y)</span> tels que <span class="m">AM · n = 0</span>, soit :
+<div class="c m">a(x − x<sub>A</sub>) + b(y − y<sub>A</sub>) = 0</div></li></ul></div>
+
+<div class="box rem"><b>Positions relatives de deux droites</b>
+Soient <span class="m">(D) : ax + by + c = 0</span> de vecteur normal <span class="m">n(a, b)</span> et <span class="m">(D') : a'x + b'y + c' = 0</span> de vecteur normal <span class="m">n'(a', b')</span> :
+<ul><li><span class="m">(D) ⊥ (D') ⟺ n · n' = 0 ⟺ aa' + bb' = 0</span></li>
+<li><span class="m">(D) ∥ (D') ⟺ det(n, n') = 0 ⟺ ab' − ba' = 0</span></li></ul></div>
+
+<h3>2.2 Distance d'un point à une droite</h3>
+<div class="box def"><b>Propriété</b>
+La distance d'un point <span class="m">M<sub>0</sub>(x<sub>0</sub>, y<sub>0</sub>)</span> à la droite <span class="m">(D) : ax + by + c = 0</span> est :
+<div class="c m">d(M<sub>0</sub>, (D)) = <span class="f"><i>|ax<sub>0</sub> + by<sub>0</sub> + c|</i><i>√(a² + b²)</i></span></div></div>
+
+<div class="box app"><b>Application 2</b>
+Soit <span class="m">(D)</span> la droite d'équation <span class="m">3x − 4y + 2 = 0</span> et <span class="m">A(2, −1)</span>.
+<ol><li>Déterminer une équation cartésienne de la droite <span class="m">(Δ)</span> passant par <span class="m">A</span> et perpendiculaire à <span class="m">(D)</span>.</li>
+<li>Calculer la distance <span class="m">d(A, (D))</span>.</li></ol></div>
+
+<h2 id="ce">3. Étude analytique du cercle</h2>
+
+<h3>3.1 Équations d'un cercle</h3>
+<div class="box def"><b>Propriétés</b>
+<ul><li><b>Cercle défini par son centre et son rayon :</b> le cercle <span class="m">(𝒞)</span> de centre <span class="m">Ω(a, b)</span> et de rayon <span class="m">R ≥ 0</span> a pour équation cartésienne :
+<div class="c m">(x − a)² + (y − b)² = R² &nbsp;&nbsp;⟺&nbsp;&nbsp; x² + y² − 2ax − 2by + c = 0 &nbsp;(avec c = a² + b² − R²)</div></li>
+<li><b>Cercle défini par un diamètre <span class="m">[AB]</span> :</b> <span class="m">M(x, y) ∈ (𝒞) ⟺ MA · MB = 0 ⟺ (x − x<sub>A</sub>)(x − x<sub>B</sub>) + (y − y<sub>A</sub>)(y − y<sub>B</sub>) = 0</span>.</li></ul></div>
+
+<div class="box rem"><b>Reconnaître l'ensemble <span class="m">(Γ) : x² + y² + αx + βy + γ = 0</span></b>
+En écrivant sous forme canonique <span class="m">(x + <span class="f"><i>α</i><i>2</i></span>)² + (y + <span class="f"><i>β</i><i>2</i></span>)² = <span class="f"><i>α² + β² − 4γ</i><i>4</i></span></span>, on pose <span class="m">Δ = α² + β² − 4γ</span> :
+<ul><li>Si <span class="m">Δ &gt; 0</span> : <span class="m">(Γ)</span> est le cercle de centre <span class="m">Ω(−<span class="f"><i>α</i><i>2</i></span>, −<span class="f"><i>β</i><i>2</i></span>)</span> et de rayon <span class="m">R = <span class="f"><i>√Δ</i><i>2</i></span></span>.</li>
+<li>Si <span class="m">Δ = 0</span> : <span class="m">(Γ)</span> est réduit au singleton <span class="m">{Ω(−<span class="f"><i>α</i><i>2</i></span>, −<span class="f"><i>β</i><i>2</i></span>)}</span>.</li>
+<li>Si <span class="m">Δ &lt; 0</span> : <span class="m">(Γ) = ∅</span>.</li></ul></div>
+
+<h3>3.2 Position relative d'un cercle et d'une droite — Tangente</h3>
+<div class="box def"><b>Intersection d'un cercle <span class="m">(𝒞)(Ω, R)</span> et d'une droite <span class="m">(D)</span></b>
+Soit <span class="m">d = d(Ω, (D))</span> :
+<ul><li>Si <span class="m">d &gt; R</span> : <span class="m">(D)</span> et <span class="m">(𝒞)</span> sont disjoints (<span class="m">(𝒞) ∩ (D) = ∅</span>).</li>
+<li>Si <span class="m">d = R</span> : <span class="m">(D)</span> est <b>tangente</b> à <span class="m">(𝒞)</span> en un unique point <span class="m">H</span>.</li>
+<li>Si <span class="m">d &lt; R</span> : <span class="m">(D)</span> et <span class="m">(𝒞)</span> sont sécants en deux points distincts.</li></ul>
+<b>Équation de la tangente <span class="m">(T)</span> en un point <span class="m">A ∈ (𝒞)</span> :</b> <span class="m">M(x, y) ∈ (T) ⟺ AM · AΩ = 0</span>.</div>
+
+<div class="box exo"><b>Exercice de synthèse</b>
+On considère le cercle <span class="m">(𝒞)</span> d'équation <span class="m">x² + y² − 4x + 2y − 20 = 0</span> et la droite <span class="m">(D) : 3x + 4y − 27 = 0</span>.
+<ol><li>Déterminer le centre <span class="m">Ω</span> et le rayon <span class="m">R</span> du cercle <span class="m">(𝒞)</span>.</li>
+<li>Vérifier que le point <span class="m">A(5, 3)</span> appartient à <span class="m">(𝒞)</span> et déterminer une équation de la tangente <span class="m">(T)</span> à <span class="m">(𝒞)</span> en <span class="m">A</span>.</li>
+<li>Calculer <span class="m">d(Ω, (D))</span> et en déduire la position relative de <span class="m">(D)</span> et <span class="m">(𝒞)</span>.</li></ol></div>
+</main>
+</body>
+</html>
