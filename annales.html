@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Astuces méthodologiques, pièges classiques et annales corrigées de concours de mathématiques — MathExcellence." />
+  <title>Astuces & Annales Concours — MathExcellence</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+  <!-- Barre de navigation -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-extrabold tracking-tight text-indigo-700">
+        Math<span class="text-slate-900">Excellence</span>
+      </a>
+      <nav class="flex flex-wrap items-center gap-5 text-sm font-medium text-slate-600">
+        <a href="index.html" class="hover:text-indigo-600 transition">Accueil</a>
+        <a href="cours.html" class="hover:text-indigo-600 transition">Fiches de Cours</a>
+        <a href="exercices.html" class="hover:text-indigo-600 transition">Exercices Corrigés</a>
+        <a href="annales.html" class="text-indigo-600 font-semibold">Astuces & Annales</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- En-tête -->
+  <section class="bg-gradient-to-br from-slate-900 via-violet-950 to-indigo-900 text-white py-14 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-violet-500/20 border border-violet-400/30 rounded-full mb-4">
+        Préparation Concours & QCM • Rapidité & Rigueur
+      </span>
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-4">
+        Astuces Méthodologiques & Annales Corrigées
+      </h1>
+      <p class="text-indigo-100 text-base md:text-lg max-w-2xl mx-auto">
+        Gagnez de précieuses minutes aux concours grâce aux réflexes clés, aux pièges à éviter et aux sujets corrigés étape par étape.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filtres -->
+  <div class="max-w-5xl mx-auto px-4 pt-8">
+    <div class="flex flex-wrap gap-3 justify-center">
+      <button onclick="filtrerAnnales('tous', this)" class="filtre-annale px-5 py-2 rounded-full text-sm font-semibold bg-indigo-600 text-white shadow-sm transition">
+        Tout afficher
+      </button>
+      <button onclick="filtrerAnnales('astuces', this)" class="filtre-annale px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-700 border border-slate-300 hover:border-indigo-500 transition">
+        Astuces & Pièges
+      </button>
+      <button onclick="filtrerAnnales('annales', this)" class="filtre-annale px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-700 border border-slate-300 hover:border-indigo-500 transition">
+        Sujets & Annales
+      </button>
+    </div>
+  </div>
+
+  <!-- Contenu principal -->
+  <main class="max-w-5xl mx-auto px-4 py-10 space-y-8">
+
+    <!-- ASTUCE 1 -->
+    <article data-type="astuces" class="annale-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex items-center justify-between gap-2 mb-3">
+        <span class="px-3 py-1 text-xs font-bold rounded-full bg-amber-100 text-amber-800">Astuce #01 • Limites & Calcul rapide</span>
+        <span class="text-xs text-slate-400">Gain de temps : QCM</span>
+      </div>
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Équivalents usuels et croissances comparées</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-2">
+        <p>En concours (souvent en temps limité sans calculatrice), évitez les développements longs quand un équivalent ou une croissance comparée suffit :</p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Au voisinage de $0$ : $\ln(1 + x) \sim x$, $e^x - 1 \sim x$, $\sin x \sim x$, $1 - \cos x \sim \frac{x^2}{2}$.</li>
+          <li>À l'infini : pour tous $\alpha > 0$ et $\beta > 0$, $\lim_{x \to +\infty} \frac{(\ln x)^\beta}{x^\alpha} = 0$ et $\lim_{x \to +\infty} \frac{x^\alpha}{e^{\beta x}} = 0$.</li>
+          <li><strong>Piège classique :</strong> vérifiez toujours que l'expression ne s'annule pas ou ne change pas de signe avant de multiplier ou diviser par un équivalent dans une somme ou une exponentielle.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- ASTUCE 2 -->
+    <article data-type="astuces" class="annale-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex items-center justify-between gap-2 mb-3">
+        <span class="px-3 py-1 text-xs font-bold rounded-full bg-amber-100 text-amber-800">Astuce #02 • Raisonnement</span>
+        <span class="text-xs text-slate-400">Rigueur & Concours</span>
+      </div>
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Quand utiliser la contraposée ou l'absurde ?</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-2">
+        <ul class="list-disc pl-5 space-y-1">
+          <li><strong>Contraposée ($P \implies Q \iff \text{non } Q \implies \text{non } P$) :</strong> très efficace quand la négation de la conclusion donne une information concrète (par exemple : montrer que $n$ est pair en supposant $n$ impair).</li>
+          <li><strong>Absurde :</strong> particulièrement utile pour prouver l'irrationalité ($\sqrt{2} \notin \mathbb{Q}$), l'unicité d'une solution ou l'impossibilité d'une configuration.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- ANNALES 1 -->
+    <article data-type="annales" class="annale-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 text-xs font-bold rounded-full bg-violet-100 text-violet-700">Annale Concours</span>
+          <span class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-100 text-slate-700">Suites & Intégrales</span>
+        </div>
+        <span class="text-xs text-slate-400">Sujet #01</span>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Suite d'intégrales : $I_n = \int_0^1 x^n e^{-x}\,dx$</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-2 mb-6">
+        <p>Pour tout entier naturel $n \ge 0$, on pose :
+          $$I_n = \int_0^1 x^n e^{-x}\,dx$$
+        </p>
+        <ol class="list-decimal pl-5 space-y-1">
+          <li>Calculer $I_0$.</li>
+          <li>Montrer que pour tout $n \ge 0$, $I_{n+1} = (n+1)I_n - \frac{1}{e}$.</li>
+          <li>Montrer que la suite $(I_n)_{n \ge 0}$ est décroissante et positive, puis en déduire $\lim_{n \to +\infty} I_n$.</li>
+        </ol>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <button onclick="toggleBlocAnnale('ind-a1')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition">
+          💡 Indice
+        </button>
+        <button onclick="toggleBlocAnnale('cor-a1')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-indigo-600 text-white hover:bg-indigo-700 transition">
+          ✓ Afficher / Masquer le corrigé
+        </button>
+      </div>
+
+      <div id="ind-a1" class="hidden mt-4 p-4 rounded-xl bg-amber-50/70 border border-amber-200 text-sm text-amber-950">
+        <strong>Indice :</strong> Pour la question 2, effectuez une intégration par parties sur $I_{n+1}$ en posant $u(x) = x^{n+1}$ et $v'(x) = e^{-x}$. Pour la question 3, encadrez $x^n e^{-x}$ sur $[0, 1]$.
+      </div>
+
+      <div id="cor-a1" class="hidden mt-4 p-5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-800 space-y-3">
+        <p class="font-bold text-indigo-700">Corrigé détaillé :</p>
+        <p><strong>1. Calcul de $I_0$ :</strong>
+          $$I_0 = \int_0^1 e^{-x}\,dx = \Big[-e^{-x}\Big]_0^1 = -e^{-1} - (-e^0) = 1 - \frac{1}{e}$$
+        </p>
+        <p><strong>2. Relation de récurrence :</strong> Posons $u(x) = x^{n+1}$ (dérivable, $u'(x) = (n+1)x^n$) et $v'(x) = e^{-x}$ (primitive $v(x) = -e^{-x}$). Par intégration par parties :
+          $$I_{n+1} = \Big[-x^{n+1}e^{-x}\Big]_0^1 + (n+1)\int_0^1 x^n e^{-x}\,dx = -\frac{1}{e} + 0 + (n+1)I_n = (n+1)I_n - \frac{1}{e}$$
+        </p>
+        <p><strong>3. Monotonie et limite :</strong> Pour tout $x \in [0, 1]$, on a $0 \le x^{n+1} \le x^n \le 1$ et $e^{-x} > 0$, donc $0 \le x^{n+1}e^{-x} \le x^n e^{-x}$. Par croissance de l'intégrale :
+          $$0 \le I_{n+1} \le I_n$$
+          La suite $(I_n)$ est donc décroissante et minorée par $0$ : elle converge vers une limite $\ell \ge 0$. De plus, pour tout $x \in [0, 1]$, $0 \le x^n e^{-x} \le x^n$, donc $0 \le I_n \le \int_0^1 x^n\,dx = \frac{1}{n+1}$. Par le théorème des gendarmes, $\lim_{n \to +\infty} I_n = 0$.
+        </p>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="border-t border-slate-200 bg-white py-8 px-4 text-center text-sm text-slate-500">
+    <p>© 2026 <strong>MathExcellence</strong> — Plateforme de Cours, Résumés & Exercices Corrigés de Mathématiques.</p>
+  </footer>
+
+  <script>
+    function toggleBlocAnnale(id) {
+      document.getElementById(id).classList.toggle('hidden');
+    }
+
+    function filtrerAnnales(type, boutonActif) {
+      const cartes = document.querySelectorAll('.annale-card');
+      const boutons = document.querySelectorAll('.filtre-annale');
+
+      boutons.forEach(btn => {
+        btn.classList.remove('bg-indigo-600', 'text-white', 'shadow-sm');
+        btn.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-300');
+      });
+
+      boutonActif.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-300');
+      boutonActif.classList.add('bg-indigo-600', 'text-white', 'shadow-sm');
+
+      cartes.forEach(carte => {
+        if (type === 'tous' || carte.dataset.type === type) {
+          carte.classList.remove('hidden');
+        } else {
+          carte.classList.add('hidden');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
