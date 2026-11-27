@@ -182,7 +182,44 @@
         <p>$$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k} \quad ; \quad E(X) = np \quad ; \quad V(X) = np(1-p)$$</p>
       </div>
     </article>
+<!-- FICHE 4 : Algèbre / Nombres Complexes -->
+    <article data-matiere="algebre" class="cours-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <span class="px-3 py-1 text-xs font-bold rounded-full bg-emerald-100 text-emerald-700">Algèbre</span>
+        <span class="text-xs text-slate-400">Fiche #04 • Nombres Complexes</span>
+      </div>
 
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Forme trigonométrique, exponentielle et formules d'Euler</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-3">
+        <p>Pour tout nombre complexe non nul $z = x + iy$ de module $r = |z| = \sqrt{x^2 + y^2}$ et d'argument $\theta \in \mathbb{R}$ :</p>
+        <ul class="list-disc pl-5 space-y-1.5">
+          <li><strong>Écriture exponentielle :</strong> $z = r e^{i\theta} = r(\cos\theta + i\sin\theta)$, avec $\cos\theta = \frac{x}{r}$ et $\sin\theta = \frac{y}{r}$.</li>
+          <li><strong>Produit, quotient et puissance :</strong> pour $z_1 = r_1 e^{i\theta_1}$ et $z_2 = r_2 e^{i\theta_2}$ ($r_2 > 0$) :
+            $$z_1 z_2 = r_1 r_2 e^{i(\theta_1 + \theta_2)}, \qquad \frac{z_1}{z_2} = \frac{r_1}{r_2} e^{i(\theta_1 - \theta_2)}, \qquad z_1^n = r_1^n e^{in\theta_1}\;(n \in \mathbb{Z})$$
+          </li>
+          <li><strong>Formules d'Euler :</strong> pour tout $\theta \in \mathbb{R}$,
+            $$\cos\theta = \frac{e^{i\theta} + e^{-i\theta}}{2} \qquad \text{et} \qquad \sin\theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}$$
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- FICHE 5 : Analyse / Suites Numériques -->
+    <article data-matiere="analyse" class="cours-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <span class="px-3 py-1 text-xs font-bold rounded-full bg-blue-100 text-blue-700">Analyse</span>
+        <span class="text-xs text-slate-400">Fiche #05 • Suites Numériques</span>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Convergence, suites adjacentes et récurrence linéaire</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-3">
+        <ul class="list-disc pl-5 space-y-1.5">
+          <li><strong>Théorème de convergence monotone :</strong> toute suite croissante et majorée converge ; toute suite décroissante et minorée converge.</li>
+          <li><strong>Suites adjacentes :</strong> si $(a_n)$ est croissante, $(b_n)$ est décroissante et $\lim_{n \to +\infty}(b_n - a_n) = 0$, alors $(a_n)$ et $(b_n)$ convergent vers la même limite $\ell$, et $a_n \le \ell \le b_n$ pour tout $n$.</li>
+          <li><strong>Suite arithmético-géométrique :</strong> pour $u_{n+1} = a u_n + b$ avec $a \neq 1$, on cherche le point fixe $\ell = a\ell + b \iff \ell = \frac{b}{1 - a}$, puis la suite $v_n = u_n - \ell$ est géométrique de raison $a$.</li>
+        </ul>
+      </div>
+    </article>
   </main>
 
   <!-- Pied de page -->
