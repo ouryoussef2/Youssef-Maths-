@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Devoirs libres de mathématiques à chercher en autonomie avec indices et propositions de corrigés — MathExcellence." />
+  <title>Devoirs Libres — MathExcellence</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+  <!-- Barre de navigation -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-extrabold tracking-tight text-indigo-700">
+        Math<span class="text-slate-900">Excellence</span>
+      </a>
+      <nav class="flex flex-wrap items-center gap-4 text-sm font-medium text-slate-600">
+        <a href="index.html" class="hover:text-indigo-600 transition">Accueil</a>
+        <a href="cours.html" class="hover:text-indigo-600 transition">Fiches de Cours</a>
+        <a href="exercices.html" class="hover:text-indigo-600 transition">Exercices Corrigés</a>
+        <a href="annales.html" class="hover:text-indigo-600 transition">Astuces & Annales</a>
+        <a href="qcm.html" class="hover:text-indigo-600 transition">QCM Chronométré</a>
+        <a href="devoirs.html" class="text-teal-700 font-semibold">Devoirs Libres</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- En-tête -->
+  <section class="bg-gradient-to-br from-slate-900 via-teal-950 to-indigo-900 text-white py-14 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-teal-500/20 border border-teal-400/30 rounded-full mb-4">
+        Travail en Autonomie • Recherche & Rédaction
+      </span>
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-4">
+        Devoirs Libres à Faire par les Élèves
+      </h1>
+      <p class="text-teal-100 text-base md:text-lg max-w-2xl mx-auto">
+        Prenez le temps de chercher ces sujets complets sur feuille avant d'ouvrir l'indice ou la proposition de corrigé.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filtres par thème -->
+  <div class="max-w-5xl mx-auto px-4 pt-8">
+    <div class="flex flex-wrap gap-3 justify-center">
+      <button onclick="filtrerDevoirs('tous', this)" class="filtre-devoir px-5 py-2 rounded-full text-sm font-semibold bg-teal-600 text-white shadow-sm transition">
+        Tous les devoirs
+      </button>
+      <button onclick="filtrerDevoirs('analyse', this)" class="filtre-devoir px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-700 border border-slate-300 hover:border-teal-500 transition">
+        Analyse
+      </button>
+      <button onclick="filtrerDevoirs('algebre', this)" class="filtre-devoir px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-700 border border-slate-300 hover:border-teal-500 transition">
+        Algèbre & Arithmétique
+      </button>
+    </div>
+  </div>
+
+  <!-- Liste des devoirs libres -->
+  <main class="max-w-5xl mx-auto px-4 py-10 space-y-8">
+
+    <!-- DEVOIR LIBRE 1 -->
+    <article data-theme="analyse" class="devoir-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 text-xs font-bold rounded-full bg-blue-100 text-blue-700">Analyse</span>
+          <span class="px-3 py-1 text-xs font-semibold rounded-full bg-teal-50 text-teal-800">Temps conseillé : 45 min</span>
+        </div>
+        <span class="text-xs text-slate-400">Devoir Libre #01</span>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Suite définie par récurrence et encadrement</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-2 mb-6">
+        <p>On considère la suite $(u_n)_{n \ge 0}$ définie par $u_0 = 1$ et, pour tout $n \in \mathbb{N}$ :
+          $$u_{n+1} = \frac{1}{2}u_n + 2$$
+        </p>
+        <ol class="list-decimal pl-5 space-y-1">
+          <li>Calculer $u_1$ et $u_2$. La suite $(u_n)$ est-elle arithmétique ou géométrique ?</li>
+          <li>Montrer par récurrence que pour tout $n \in \mathbb{N}$, $u_n < 4$.</li>
+          <li>Étudier le sens de variation de $(u_n)$, en déduire qu'elle converge et déterminer sa limite.</li>
+          <li>On pose $v_n = u_n - 4$. Montrer que $(v_n)$ est géométrique, exprimer $v_n$ puis $u_n$ en fonction de $n$, et retrouver la limite précédente.</li>
+        </ol>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <button onclick="toggleDevoir('ind-d1')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition">
+          💡 Indice
+        </button>
+        <button onclick="toggleDevoir('cor-d1')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-teal-600 text-white hover:bg-teal-700 transition">
+          ✓ Afficher / Masquer la proposition de corrigé
+        </button>
+      </div>
+
+      <div id="ind-d1" class="hidden mt-4 p-4 rounded-xl bg-amber-50/70 border border-amber-200 text-sm text-amber-950">
+        <strong>Indice :</strong> Pour la question 3, étudiez le signe de $u_{n+1} - u_n = 2 - \frac{1}{2}u_n$ en utilisant $u_n < 4$. Pour la question 4, calculez $v_{n+1} = u_{n+1} - 4$.
+      </div>
+
+      <div id="cor-d1" class="hidden mt-4 p-5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-800 space-y-3">
+        <p class="font-bold text-teal-700">Proposition de corrigé :</p>
+        <p><strong>1. Premiers termes :</strong> $u_1 = \frac{1}{2}(1) + 2 = \frac{5}{2}$ et $u_2 = \frac{1}{2}\left(\frac{5}{2}\right) + 2 = \frac{13}{4}$. Comme $u_1 - u_0 = \frac{3}{2} \neq u_2 - u_1 = \frac{3}{4}$ et $\frac{u_1}{u_0} = \frac{5}{2} \neq \frac{u_2}{u_1} = \frac{13}{10}$, la suite n'est ni arithmétique ni géométrique.</p>
+        <p><strong>2. Majoration par $4$ :</strong> Initialisation ($n=0$) : $u_0 = 1 < 4$, vrai. Hérédité : si $u_n < 4$, alors $\frac{1}{2}u_n < 2$, donc $u_{n+1} = \frac{1}{2}u_n + 2 < 4$. Par récurrence, $u_n < 4$ pour tout $n \in \mathbb{N}$.</p>
+        <p><strong>3. Monotonie et limite :</strong> $u_{n+1} - u_n = \frac{1}{2}u_n + 2 - u_n = 2 - \frac{1}{2}u_n = \frac{1}{2}(4 - u_n) > 0$ car $u_n < 4$. La suite $(u_n)$ est strictement croissante et majorée par $4$, donc elle converge vers une limite $\ell \le 4$ vérifiant $\ell = \frac{1}{2}\ell + 2 \iff \ell = 4$.</p>
+        <p><strong>4. Suite auxiliaire :</strong> $v_{n+1} = u_{n+1} - 4 = \frac{1}{2}u_n - 2 = \frac{1}{2}(u_n - 4) = \frac{1}{2}v_n$, avec $v_0 = 1 - 4 = -3$. Ainsi $v_n = -3\left(\frac{1}{2}\right)^n$ et $u_n = 4 - 3\left(\frac{1}{2}\right)^n$. Comme $\left|\frac{1}{2}\right| < 1$, $\lim_{n \to +\infty} u_n = 4$.</p>
+      </div>
+    </article>
+
+    <!-- DEVOIR LIBRE 2 -->
+    <article data-theme="algebre" class="devoir-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 text-xs font-bold rounded-full bg-emerald-100 text-emerald-700">Algèbre & Arithmétique</span>
+          <span class="px-3 py-1 text-xs font-semibold rounded-full bg-teal-50 text-teal-800">Temps conseillé : 40 min</span>
+        </div>
+        <span class="text-xs text-slate-400">Devoir Libre #02</span>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Congruences, restes et pgcd</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-2 mb-6">
+        <p>Pour tout entier naturel $n$, on pose $a_n = 5^n + 3$.</p>
+        <ol class="list-decimal pl-5 space-y-1">
+          <li>Déterminer le reste de la division euclidienne de $a_n$ par $4$ pour tout $n \in \mathbb{N}$.</li>
+          <li>En déduire que pour tout $n \in \mathbb{N}$, $a_n$ n'est pas un carré parfait.</li>
+          <li>Montrer que pour tout $n \in \mathbb{N}$, $\operatorname{pgcd}(a_n, a_{n+1})$ divise $20$.</li>
+        </ol>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <button onclick="toggleDevoir('ind-d2')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition">
+          💡 Indice
+        </button>
+        <button onclick="toggleDevoir('cor-d2')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-teal-600 text-white hover:bg-teal-700 transition">
+          ✓ Afficher / Masquer la proposition de corrigé
+        </button>
+      </div>
+
+      <div id="ind-d2" class="hidden mt-4 p-4 rounded-xl bg-amber-50/70 border border-amber-200 text-sm text-amber-950">
+        <strong>Indice :</strong> Remarquez que $5 \equiv 1 \pmod 4$, puis comparez les restes modulo $4$ avec ceux d'un carré entier $m^2$ ($0$ ou $1$). Pour la question 3, calculez $a_{n+1} - 5a_n$.
+      </div>
+
+      <div id="cor-d2" class="hidden mt-4 p-5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-800 space-y-3">
+        <p class="font-bold text-teal-700">Proposition de corrigé :</p>
+        <p><strong>1. Reste modulo $4$ :</strong> Comme $5 \equiv 1 \pmod 4$, on a $5^n \equiv 1^n \equiv 1 \pmod 4$, d'où $a_n = 5^n + 3 \equiv 1 + 3 \equiv 0 \pmod 4$. Le reste de la division euclidienne de $a_n$ par $4$ est donc $0$.</p>
+        <p><strong>2. Non-carré parfait :</strong> Si $a_n = m^2$ pour un entier $m$, alors $m^2 \equiv 0 \pmod 4$, donc $m$ est pair ($m = 2k$), d'où $m^2 = 4k^2$ multiple de $4$. Or $a_n = 5^n + 3$ est impair car $5^n$ est impair et $3$ est impair : contradiction. Ainsi $a_n$ n'est jamais un carré parfait.</p>
+        <p><strong>3. Divisibilité du $\operatorname{pgcd}$ :</strong> On a $a_{n+1} - 5a_n = (5^{n+1} + 3) - 5(5^n + 3) = 3 - 15 = -12$. Par ailleurs, $a_n \equiv 0 \pmod 4$ et $a_{n+1} \equiv 0 \pmod 4$, donc tout diviseur commun $d$ à $a_n$ et $a_{n+1}$ divise $4$ et aussi $a_{n+1} - 5a_n = -12$, donc $\operatorname{pgcd}(a_n, a_{n+1})$ divise $4$ (et a fortiori $20$).</p>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="border-t border-slate-200 bg-white py-8 px-4 text-center text-sm text-slate-500">
+    <p>© 2026 <strong>MathExcellence</strong> — Plateforme de Cours, Résumés & Exercices Corrigés de Mathématiques.</p>
+  </footer>
+
+  <script>
+    function toggleDevoir(id) {
+      document.getElementById(id).classList.toggle('hidden');
+    }
+
+    function filtrerDevoirs(theme, boutonActif) {
+      const cartes = document.querySelectorAll('.devoir-card');
+      const boutons = document.querySelectorAll('.filtre-devoir');
+
+      boutons.forEach(btn => {
+        btn.classList.remove('bg-teal-600', 'text-white', 'shadow-sm');
+        btn.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-300');
+      });
+
+      boutonActif.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-300');
+      boutonActif.classList.add('bg-teal-600', 'text-white', 'shadow-sm');
+
+      cartes.forEach(carte => {
+        if (theme === 'tous' || carte.dataset.theme === theme) {
+          carte.classList.remove('hidden');
+        } else {
+          carte.classList.add('hidden');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
