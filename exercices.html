@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Séries d'exercices corrigés étape par étape en Analyse, Algèbre et Probabilités — MathExcellence." />
+  <title>Exercices Corrigés — MathExcellence</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+  <!-- Barre de navigation -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-extrabold tracking-tight text-indigo-700">
+        Math<span class="text-slate-900">Excellence</span>
+      </a>
+      <nav class="flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="index.html" class="hover:text-indigo-600 transition">Accueil</a>
+        <a href="cours.html" class="hover:text-indigo-600 transition">Fiches de Cours</a>
+        <a href="exercices.html" class="text-indigo-600 font-semibold">Exercices Corrigés</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- En-tête -->
+  <section class="bg-gradient-to-br from-slate-900 via-indigo-900 to-indigo-800 text-white py-14 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-indigo-500/20 border border-indigo-400/30 rounded-full mb-4">
+        Entraînement Interactif • Bac Sciences Maths & Concours
+      </span>
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-4">
+        Séries d'Exercices Corrigés
+      </h1>
+      <p class="text-indigo-100 text-base md:text-lg max-w-2xl mx-auto">
+        Cherchez chaque problème avec l'indice proposé, puis affichez la rédaction complète étape par étape.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filtres par matière -->
+  <div class="max-w-5xl mx-auto px-4 pt-8">
+    <div class="flex flex-wrap gap-3 justify-center">
+      <button onclick="filtrerExos('tous', this)" class="filtre-btn px-5 py-2 rounded-full text-sm font-semibold bg-indigo-600 text-white shadow-sm transition">
+        Tous les exercices
+      </button>
+      <button onclick="filtrerExos('analyse', this)" class="filtre-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-700 border border-slate-300 hover:border-indigo-500 transition">
+        Analyse
+      </button>
+      <button onclick="filtrerExos('algebre', this)" class="filtre-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-700 border border-slate-300 hover:border-indigo-500 transition">
+        Algèbre
+      </button>
+      <button onclick="filtrerExos('probabilites', this)" class="filtre-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-700 border border-slate-300 hover:border-indigo-500 transition">
+        Probabilités
+      </button>
+    </div>
+  </div>
+
+  <!-- Liste des exercices -->
+  <main class="max-w-5xl mx-auto px-4 py-10 space-y-8">
+
+    <!-- EXERCICE 1 : Analyse (Suites & TVI) -->
+    <article data-categorie="analyse" class="exo-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 text-xs font-bold rounded-full bg-blue-100 text-blue-700">Analyse</span>
+          <span class="px-3 py-1 text-xs font-semibold rounded-full bg-amber-100 text-amber-800">Niveau : Bac SM / Concours</span>
+        </div>
+        <span class="text-xs text-slate-400">Exercice #01</span>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Équation implicite et suite définie par récurrence</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-2 mb-6">
+        <p>Pour tout entier naturel $n \ge 1$, on considère la fonction $f_n$ définie sur $[0, +\infty[$ par :
+          $$f_n(x) = x^n + x - 1$$
+        </p>
+        <ol class="list-decimal pl-5 space-y-1">
+          <li>Montrer que pour tout $n \ge 1$, l'équation $f_n(x) = 0$ admet une unique solution $u_n$ dans $]0, 1[$.</li>
+          <li>Étudier la monotonie de la suite $(u_n)_{n \ge 1}$ et en déduire qu'elle est convergente.</li>
+          <li>Déterminer $\lim_{n \to +\infty} u_n$.</li>
+        </ol>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <button onclick="toggleBloc('indice-1')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition">
+          💡 Indice
+        </button>
+        <button onclick="toggleBloc('corr-1')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-indigo-600 text-white hover:bg-indigo-700 transition">
+          ✓ Afficher / Masquer la correction
+        </button>
+      </div>
+
+      <div id="indice-1" class="hidden mt-4 p-4 rounded-xl bg-amber-50/70 border border-amber-200 text-sm text-amber-950">
+        <strong>Indice :</strong> Pour la question 2, calculez $f_{n+1}(u_n)$ en utilisant l'égalité $u_n^n = 1 - u_n$, puis comparez son signe à $f_{n+1}(u_{n+1}) = 0$.
+      </div>
+
+      <div id="corr-1" class="hidden mt-4 p-5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-800 space-y-3">
+        <p class="font-bold text-indigo-700">Correction détaillée :</p>
+        <p><strong>1. Existence et unicité :</strong> $f_n$ est continue et dérivable sur $[0, 1]$, avec $f_n'(x) = nx^{n-1} + 1 > 0$ pour tout $x \in [0, 1]$. Elle est donc strictement croissante sur $[0, 1]$. Comme $f_n(0) = -1 < 0$ et $f_n(1) = 1 > 0$, d'après le corollaire du TVI, l'équation $f_n(x) = 0$ admet une unique solution $u_n \in ]0, 1[$.</p>
+        <p><strong>2. Monotonie et convergence :</strong> On a $u_n^n + u_n - 1 = 0$. Or :
+          $$f_{n+1}(u_n) = u_n^{n+1} + u_n - 1 = u_n(1 - u_n) + u_n - 1 = (1 - u_n)(u_n - 1) = -(1 - u_n)^2 < 0$$
+          Ainsi $f_{n+1}(u_n) < f_{n+1}(u_{n+1})$. Par stricte croissance de $f_{n+1}$, on en déduit $u_n < u_{n+1}$. La suite $(u_n)$ est strictement croissante et majorée par $1$, donc elle converge vers une limite $\ell \in ]0, 1]$.</p>
+        <p><strong>3. Limite :</strong> Supposons $\ell < 1$. Alors $\lim_{n \to +\infty} u_n^n = 0$ (car $0 < u_n \le \ell < 1$). En passant à la limite dans $u_n^n + u_n - 1 = 0$, on obtient $0 + \ell - 1 = 0 \implies \ell = 1$, contradiction. Donc $\lim_{n \to +\infty} u_n = 1$.</p>
+      </div>
+    </article>
+
+    <!-- EXERCICE 2 : Algèbre (Nombres complexes) -->
+    <article data-categorie="algebre" class="exo-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 text-xs font-bold rounded-full bg-emerald-100 text-emerald-700">Algèbre</span>
+          <span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-50 text-emerald-800">Niveau : Terminale / Bac SM</span>
+        </div>
+        <span class="text-xs text-slate-400">Exercice #02</span>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Factorisation par l'angle moitié et module</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-2 mb-6">
+        <p>Soit $\theta \in ]0, \pi[$. On pose $Z = 1 + e^{i\theta}$.</p>
+        <ol class="list-decimal pl-5 space-y-1">
+          <li>Écrire $Z$ sous forme exponentielle en factorisant par $e^{i\frac{\theta}{2}}$.</li>
+          <li>En déduire la valeur de la somme $S = \sum_{k=0}^{n} \binom{n}{k} \cos(k\theta)$.</li>
+        </ol>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <button onclick="toggleBloc('indice-2')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition">
+          💡 Indice
+        </button>
+        <button onclick="toggleBloc('corr-2')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-indigo-600 text-white hover:bg-indigo-700 transition">
+          ✓ Afficher / Masquer la correction
+        </button>
+      </div>
+
+      <div id="indice-2" class="hidden mt-4 p-4 rounded-xl bg-amber-50/70 border border-amber-200 text-sm text-amber-950">
+        <strong>Indice :</strong> Remarquez que $S = \operatorname{Re}\!\left(\sum_{k=0}^{n} \binom{n}{k} (e^{i\theta})^k\right)$ et utilisez la formule du binôme de Newton.
+      </div>
+
+      <div id="corr-2" class="hidden mt-4 p-5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-800 space-y-3">
+        <p class="font-bold text-indigo-700">Correction détaillée :</p>
+        <p><strong>1. Forme exponentielle :</strong>
+          $$Z = e^{i\frac{\theta}{2}}\left(e^{-i\frac{\theta}{2}} + e^{i\frac{\theta}{2}}\right) = 2\cos\!\left(\frac{\theta}{2}\right) e^{i\frac{\theta}{2}}$$
+          Comme $\theta \in ]0, \pi[$, on a $\frac{\theta}{2} \in ]0, \frac{\pi}{2}[$, donc $\cos(\frac{\theta}{2}) > 0$. Le module est $|Z| = 2\cos(\frac{\theta}{2})$ et un argument est $\frac{\theta}{2}$.
+        </p>
+        <p><strong>2. Calcul de la somme $S$ :</strong> D'après la formule du binôme de Newton :
+          $$\sum_{k=0}^{n} \binom{n}{k} e^{ik\theta} = (1 + e^{i\theta})^n = Z^n = 2^n \cos^n\!\left(\frac{\theta}{2}\right) e^{i\frac{n\theta}{2}}$$
+          En prenant la partie réelle de chaque membre, on obtient :
+          $$S = 2^n \cos^n\!\left(\frac{\theta}{2}\right) \cos\!\left(\frac{n\theta}{2}\right)$$
+        </p>
+      </div>
+    </article>
+
+    <!-- EXERCICE 3 : Probabilités (Bayes & Loi Binomiale) -->
+    <article data-categorie="probabilites" class="exo-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 text-xs font-bold rounded-full bg-purple-100 text-purple-700">Probabilités</span>
+          <span class="px-3 py-1 text-xs font-semibold rounded-full bg-purple-50 text-purple-800">Niveau : Terminale</span>
+        </div>
+        <span class="text-xs text-slate-400">Exercice #03</span>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Urnes, Formule de Bayes et répétition indépendante</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-2 mb-6">
+        <p>On dispose de deux urnes $U_1$ et $U_2$. L'urne $U_1$ contient $3$ boules blanches et $2$ boules noires. L'urne $U_2$ contient $1$ boule blanche et $4$ boules noires. On choisit une urne au hasard (équiprobabilité), puis on tire une boule dans cette urne.</p>
+        <ol class="list-decimal pl-5 space-y-1">
+          <li>Calculer la probabilité $P(B)$ d'obtenir une boule blanche.</li>
+          <li>Sachant que la boule tirée est blanche, quelle est la probabilité qu'elle provienne de l'urne $U_1$ ?</li>
+          <li>On répète cette expérience $10$ fois de manière indépendante (avec remise). Soit $X$ le nombre de boules blanches obtenues. Calculer $E(X)$ et $P(X \ge 1)$.</li>
+        </ol>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <button onclick="toggleBloc('indice-3')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition">
+          💡 Indice
+        </button>
+        <button onclick="toggleBloc('corr-3')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-indigo-600 text-white hover:bg-indigo-700 transition">
+          ✓ Afficher / Masquer la correction
+        </button>
+      </div>
+
+      <div id="indice-3" class="hidden mt-4 p-4 rounded-xl bg-amber-50/70 border border-amber-200 text-sm text-amber-950">
+        <strong>Indice :</strong> $(U_1, U_2)$ forme un système complet d'événements. Pour $P(X \ge 1)$, passez par l'événement contraire $\{X = 0\}$.
+      </div>
+
+      <div id="corr-3" class="hidden mt-4 p-5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-800 space-y-3">
+        <p class="font-bold text-indigo-700">Correction détaillée :</p>
+        <p><strong>1. Probabilité $P(B)$ :</strong> D'après la formule des probabilités totales :
+          $$P(B) = P(U_1)P_{U_1}(B) + P(U_2)P_{U_2}(B) = \frac{1}{2} \times \frac{3}{5} + \frac{1}{2} \times \frac{1}{5} = \frac{4}{10} = 0{,}4$$
+        </p>
+        <p><strong>2. Probabilité conditionnelle (Bayes) :</strong>
+          $$P_B(U_1) = \frac{P(U_1) \times P_{U_1}(B)}{P(B)} = \frac{0{,}5 \times 0{,}6}{0{,}4} = \frac{0{,}3}{0{,}4} = \frac{3}{4} = 0{,}75$$
+        </p>
+        <p><strong>3. Loi Binomiale :</strong> $X$ suit la loi binomiale $\mathcal{B}(10\,;\,0{,}4)$. Donc :
+          $$E(X) = np = 10 \times 0{,}4 = 4$$
+          $$P(X \ge 1) = 1 - P(X = 0) = 1 - (0{,}6)^{10} \approx 0{,}994$$
+        </p>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="border-t border-slate-200 bg-white py-8 px-4 text-center text-sm text-slate-500">
+    <p>© 2026 <strong>MathExcellence</strong> — Plateforme de Cours, Résumés & Exercices Corrigés de Mathématiques.</p>
+  </footer>
+
+  <!-- Scripts interactifs -->
+  <script>
+    function toggleBloc(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('hidden');
+    }
+
+    function filtrerExos(categorie, boutonActif) {
+      const cartes = document.querySelectorAll('.exo-card');
+      const boutons = document.querySelectorAll('.filtre-btn');
+
+      boutons.forEach(btn => {
+        btn.classList.remove('bg-indigo-600', 'text-white', 'shadow-sm');
+        btn.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-300');
+      });
+
+      boutonActif.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-300');
+      boutonActif.classList.add('bg-indigo-600', 'text-white', 'shadow-sm');
+
+      cartes.forEach(carte => {
+        if (categorie === 'tous' || carte.dataset.categorie === categorie) {
+          carte.classList.remove('hidden');
+        } else {
+          carte.classList.add('hidden');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
