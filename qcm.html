@@ -732,5 +732,100 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".qcm-item");
+
+  // Affichage immédiat d'une explication individuelle au clic sur un choix
+  items.forEach((item) => {
+    const expected = (item.getAttribute("data-correct") || "").trim().toLowerCase();
+    const explanation = item.querySelector(".qcm-explication");
+
+    item.querySelectorAll('input[type="radio"]').forEach((radio) => {
+      radio.addEventListener("change", () => {
+        if (explanation) {
+          explanation.classList.remove("hidden");
+        }
+        item.querySelectorAll("label").forEach((lbl) => {
+          lbl.classList.remove("font-bold", "text-emerald-700", "text-rose-600");
+        });
+        const chosenLabel = radio.closest("label");
+        if (chosenLabel) {
+          if (radio.value.trim().toLowerCase() === expected) {
+            chosenLabel.classList.add("font-bold", "text-emerald-700");
+          } else {
+            chosenLabel.classList.add("font-bold", "text-rose-600");
+          }
+        }
+        if (window.MathJax && MathJax.typesetPromise && explanation) {
+          MathJax.typesetPromise([explanation]).catch(() => {});
+        }
+      });
+    });
+  });
+
+  // Validation globale au clic sur le bouton de validation
+  const validateBtn =
+    document.getElementById("btn-valider-qcm") ||
+    Array.from(document.querySelectorAll("button")).find((b) =>
+      /valider/i.test(b.textContent || "")
+    );
+
+  if (validateBtn) {
+    validateBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      let score = 0;
+      let total = 0;
+
+      items.forEach((item) => {
+        const expected = (item.getAttribute("data-correct") || "").trim().toLowerCase();
+        if (!expected) return;
+        total += 1;
+
+        const checked = item.querySelector('input[type="radio"]:checked');
+        const explanation = item.querySelector(".qcm-explication");
+
+        item.querySelectorAll("label").forEach((lbl) => {
+          lbl.classList.remove("font-bold", "text-emerald-700", "text-rose-600");
+          const inp = lbl.querySelector('input[type="radio"]');
+          if (inp && inp.value.trim().toLowerCase() === expected) {
+            lbl.classList.add("font-bold", "text-emerald-700");
+          }
+        });
+
+        if (checked) {
+          if (checked.value.trim().toLowerCase() === expected) {
+            score += 1;
+          } else {
+            const badLbl = checked.closest("label");
+            if (badLbl) {
+              badLbl.classList.remove("text-emerald-700");
+              badLbl.classList.add("font-bold", "text-rose-600");
+            }
+          }
+        }
+
+        if (explanation) {
+          explanation.classList.remove("hidden");
+        }
+      });
+
+      let resultBox = document.getElementById("qcm-resultat-global");
+      if (!resultBox) {
+        resultBox = document.createElement("div");
+        resultBox.id = "qcm-resultat-global";
+        resultBox.className =
+          "mt-6 p-5 rounded-2xl bg-indigo-50 border border-indigo-200 text-indigo-950 font-semibold text-center";
+        validateBtn.parentElement.appendChild(resultBox);
+      }
+      resultBox.textContent = `Score obtenu : ${score} / ${total}`;
+
+      if (window.MathJax && MathJax.typesetPromise) {
+        MathJax.typesetPromise().catch(() => {});
+      }
+    });
+  }
+});
+</script>
 </body>
 </html>
