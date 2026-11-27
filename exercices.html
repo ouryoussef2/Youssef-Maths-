@@ -356,6 +356,98 @@
         </p>
       </div>
     </article>
+          <!-- EXERCICE LIMITE 1 : 1ère Bac SE/T - Limite à gauche, à droite et asymptote verticale -->
+    <article data-matiere="analyse" class="exo-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 text-xs font-bold rounded-full bg-blue-100 text-blue-700">1ʳᵉ Bac SE / T • Limites</span>
+          <span class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-100 text-slate-700">Niveau : Intermédiaire</span>
+        </div>
+        <span class="text-xs text-slate-400">Exercice Limites #01</span>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Limite en un point, limites latérales et asymptote verticale</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-2 mb-6">
+        <p>Soit <span class="font-semibold">f</span> la fonction définie sur <span class="font-semibold">ℝ \ {2}</span> par :</p>
+        <p class="text-center">$$f(x) = \frac{3x - 5}{x - 2}$$</p>
+        <ol class="list-decimal pl-5 space-y-1">
+          <li>Calculer <span class="font-semibold">$\lim_{x \to 2^+} f(x)$</span> et <span class="font-semibold">$\lim_{x \to 2^-} f(x)$</span>.</li>
+          <li>En déduire l'équation d'une asymptote à la courbe <span class="font-semibold">$(\mathcal{C}_f)$</span>.</li>
+          <li>Calculer <span class="font-semibold">$\lim_{x \to +\infty} f(x)$</span> et <span class="font-semibold">$\lim_{x \to -\infty} f(x)$</span>, puis en déduire une seconde asymptote à <span class="font-semibold">$(\mathcal{C}_f)$</span>.</li>
+        </ol>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <button onclick="toggleExo('ind-lim1')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition">
+          💡 Indice
+        </button>
+        <button onclick="toggleExo('cor-lim1')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-indigo-600 text-white hover:bg-indigo-700 transition">
+          ✓ Afficher / Masquer le corrigé
+        </button>
+      </div>
+
+      <div id="ind-lim1" class="hidden mt-4 p-4 rounded-xl bg-amber-50/70 border border-amber-200 text-sm text-amber-950">
+        <strong>Indice :</strong> En $x = 2$, le numérateur tend vers $3(2) - 5 = 1 > 0$. Étudiez le signe du dénominateur $x - 2$ selon que $x > 2$ ou $x < 2$.
+      </div>
+
+      <div id="cor-lim1" class="hidden mt-4 p-5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-800 space-y-3">
+        <p class="font-bold text-indigo-700">Corrigé détaillé :</p>
+        <p><strong>1. Limites en $2$ :</strong> On a $\lim_{x \to 2} (3x - 5) = 1$.
+          <br>• Pour $x > 2$, $x - 2 > 0$ et $\lim_{x \to 2^+} (x - 2) = 0^+$, donc $\lim_{x \to 2^+} f(x) = +\infty$.
+          <br>• Pour $x < 2$, $x - 2 < 0$ et $\lim_{x \to 2^-} (x - 2) = 0^-$, donc $\lim_{x \to 2^-} f(x) = -\infty$.</p>
+        <p><strong>2. Asymptote verticale :</strong> Comme $\lim_{x \to 2^+} f(x) = +\infty$, la droite d'équation $x = 2$ est une <strong>asymptote verticale</strong> à $(\mathcal{C}_f)$.</p>
+        <p><strong>3. Limites en $\pm\infty$ et asymptote horizontale :</strong> $f$ est une fraction rationnelle ; en l'infini, elle a la même limite que le quotient des termes de plus haut degré :
+          $$\lim_{x \to +\infty} f(x) = \lim_{x \to +\infty} \frac{3x}{x} = 3 \quad \text{et} \quad \lim_{x \to -\infty} f(x) = \lim_{x \to -\infty} \frac{3x}{x} = 3$$
+          La droite d'équation $y = 3$ est donc une <strong>asymptote horizontale</strong> à $(\mathcal{C}_f)$ au voisinage de $+\infty$ et de $-\infty$.</p>
+      </div>
+    </article>
+
+    <!-- EXERCICE LIMITE 2 : 1ère Bac SE/T - Formes indéterminées (factorisation & conjugué) -->
+    <article data-matiere="analyse" class="exo-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 text-xs font-bold rounded-full bg-blue-100 text-blue-700">1ʳᵉ Bac SE / T • Limites</span>
+          <span class="px-3 py-1 text-xs font-semibold rounded-full bg-amber-100 text-amber-800">Niveau : Approfondi</span>
+        </div>
+        <span class="text-xs text-slate-400">Exercice Limites #02</span>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Lever des formes indéterminées (quotient nul, racine et trigonométrie)</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-2 mb-6">
+        <p>Calculer chacune des limites suivantes en levant la forme indéterminée :</p>
+        <ol class="list-decimal pl-5 space-y-1">
+          <li><span class="font-semibold">$\lim_{x \to 3} \frac{x^2 - 5x + 6}{x - 3}$</span></li>
+          <li><span class="font-semibold">$\lim_{x \to +\infty} \left(\sqrt{x^2 + 4x} - x\right)$</span></li>
+          <li><span class="font-semibold">$\lim_{x \to 0} \frac{\sin(4x)}{2x}$</span></li>
+        </ol>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <button onclick="toggleExo('ind-lim2')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition">
+          💡 Indice
+        </button>
+        <button onclick="toggleExo('cor-lim2')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-indigo-600 text-white hover:bg-indigo-700 transition">
+          ✓ Afficher / Masquer le corrigé
+        </button>
+      </div>
+
+      <div id="ind-lim2" class="hidden mt-4 p-4 rounded-xl bg-amber-50/70 border border-amber-200 text-sm text-amber-950">
+        <strong>Indice :</strong> (1) Factorisez $x^2 - 5x + 6$ par $(x - 3)$. (2) Multipliez et divisez par $\sqrt{x^2 + 4x} + x$. (3) Posez $X = 4x$ pour utiliser $\lim_{X \to 0} \frac{\sin X}{X} = 1$.
+      </div>
+
+      <div id="cor-lim2" class="hidden mt-4 p-5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-800 space-y-3">
+        <p class="font-bold text-indigo-700">Corrigé détaillé :</p>
+        <p><strong>1. En $3$ (F.I. $\frac{0}{0}$) :</strong> Comme $3$ est racine de $x^2 - 5x + 6$, on a $x^2 - 5x + 6 = (x - 3)(x - 2)$. Pour $x \neq 3$ :
+          $$\lim_{x \to 3} \frac{(x - 3)(x - 2)}{x - 3} = \lim_{x \to 3} (x - 2) = 1$$
+        </p>
+        <p><strong>2. En $+\infty$ (F.I. $\infty - \infty$) :</strong> Pour $x > 0$, en multipliant par l'expression conjuguée :
+          $$\sqrt{x^2 + 4x} - x = \frac{(x^2 + 4x) - x^2}{\sqrt{x^2 + 4x} + x} = \frac{4x}{x\left(\sqrt{1 + \frac{4}{x}} + 1\right)} = \frac{4}{\sqrt{1 + \frac{4}{x}} + 1}$$
+          Lorsque $x \to +\infty$, $\frac{4}{x} \to 0$, donc la limite vaut $\frac{4}{1 + 1} = 2$.</p>
+        <p><strong>3. En $0$ (F.I. $\frac{0}{0}$) :</strong> Pour $x \neq 0$, en posant $X = 4x$ (on a $X \to 0$ quand $x \to 0$) :
+          $$\frac{\sin(4x)}{2x} = 2 \cdot \frac{\sin(4x)}{4x} \xrightarrow[x \to 0]{} 2 \times 1 = 2$$
+        </p>
+      </div>
+    </article>
   </main>
 
   <!-- Pied de page -->
