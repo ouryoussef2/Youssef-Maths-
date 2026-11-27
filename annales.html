@@ -147,7 +147,73 @@
         </p>
       </div>
     </article>
+<!-- ASTUCE 3 -->
+    <article data-type="astuces" class="annale-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex items-center justify-between gap-2 mb-3">
+        <span class="px-3 py-1 text-xs font-bold rounded-full bg-amber-100 text-amber-800">Astuce #03 • Suites & Récurrence</span>
+        <span class="text-xs text-slate-400">Méthode Express</span>
+      </div>
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Trouver rapidement la limite éventuelle d'une suite $u_{n+1} = f(u_n)$</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-2">
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Si $f$ est continue et si $(u_n)$ converge vers $\ell$, alors $\ell$ vérifie nécessairement l'équation de point fixe : $f(\ell) = \ell$.</li>
+          <li><strong>Réflexe concours :</strong> commencez toujours par résoudre $f(x) = x$ pour repérer les limites possibles, mais <strong>prouvez toujours la convergence</strong> (monotonie + bornitude ou contraction) avant de conclure.</li>
+        </ul>
+      </div>
+    </article>
 
+    <!-- ANNALES 2 -->
+    <article data-type="annales" class="annale-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 text-xs font-bold rounded-full bg-violet-100 text-violet-700">Annale Concours</span>
+          <span class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-100 text-slate-700">Analyse • Fonction & Convexité</span>
+        </div>
+        <span class="text-xs text-slate-400">Sujet #02</span>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Étude de la fonction $f(x) = (x - 1)e^x + 1$</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-2 mb-6">
+        <p>Soit $f$ la fonction définie sur $\mathbb{R}$ par :
+          $$f(x) = (x - 1)e^x + 1$$
+        </p>
+        <ol class="list-decimal pl-5 space-y-1">
+          <li>Calculer $f'(x)$ et $f''(x)$ pour tout $x \in \mathbb{R}$.</li>
+          <li>Étudier la convexité de $f$ sur $\mathbb{R}$, puis en déduire le signe de $f'(x)$ et les variations de $f$.</li>
+          <li>Montrer que pour tout $x \in \mathbb{R}$, $f(x) \ge 0$.</li>
+        </ol>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <button onclick="toggleBlocAnnale('ind-a2')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition">
+          💡 Indice
+        </button>
+        <button onclick="toggleBlocAnnale('cor-a2')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-indigo-600 text-white hover:bg-indigo-700 transition">
+          ✓ Afficher / Masquer le corrigé
+        </button>
+      </div>
+
+      <div id="ind-a2" class="hidden mt-4 p-4 rounded-xl bg-amber-50/70 border border-amber-200 text-sm text-amber-950">
+        <strong>Indice :</strong> Dérivez $(x-1)e^x$ avec la règle du produit : vous trouverez $f'(x) = x e^x$, puis $f''(x) = (x + 1)e^x$.
+      </div>
+
+      <div id="cor-a2" class="hidden mt-4 p-5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-800 space-y-3">
+        <p class="font-bold text-indigo-700">Corrigé détaillé :</p>
+        <p><strong>1. Dérivées première et seconde :</strong> Pour tout $x \in \mathbb{R}$ :
+          $$f'(x) = 1 \cdot e^x + (x - 1)e^x = x e^x$$
+          Puis en dérivant à nouveau :
+          $$f''(x) = 1 \cdot e^x + x e^x = (x + 1)e^x$$
+        </p>
+        <p><strong>2. Convexité et variations :</strong> Comme $e^x > 0$ pour tout $x \in \mathbb{R}$, $f''(x)$ a le signe de $x + 1$ :
+          $f$ est concave sur $]-\infty, -1]$ et convexe sur $[-1, +\infty[$, avec un point d'inflexion en $x = -1$.
+          Pour $f'(x) = x e^x$, le signe est celui de $x$ : $f$ est décroissante sur $]-\infty, 0]$ et croissante sur $[0, +\infty[$.
+        </p>
+        <p><strong>3. Minoration par $0$ :</strong> D'après les variations de $f$, son minimum global sur $\mathbb{R}$ est atteint en $x = 0$ :
+          $$f(0) = (0 - 1)e^0 + 1 = -1 + 1 = 0$$
+          Ainsi, pour tout $x \in \mathbb{R}$, $f(x) \ge f(0) = 0$.
+        </p>
+      </div>
+    </article>
   </main>
 
   <!-- Pied de page -->
