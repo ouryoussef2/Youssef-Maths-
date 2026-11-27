@@ -220,6 +220,65 @@
         </ul>
       </div>
     </article>
+    <!-- COURS 1ER BAC SE : Suites Numériques -->
+    <article data-matiere="analyse" class="cours-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <span class="px-3 py-1 text-xs font-bold rounded-full bg-blue-100 text-blue-700">1ʳᵉ Bac SE • Analyse</span>
+        <span class="text-xs text-slate-400">Cours • Suites Numériques</span>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Suites arithmétiques, suites géométriques et limites</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-3">
+        <ul class="list-disc pl-5 space-y-1.5">
+          <li><strong>Suite arithmétique de raison $r$ :</strong> $u_{n+1} - u_n = r$, terme général $u_n = u_p + (n - p)r$, et somme des termes consécutifs :
+            $$\sum_{k=p}^{n} u_k = (\text{nombre de termes}) \times \frac{u_p + u_n}{2} = (n - p + 1)\frac{u_p + u_n}{2}$$
+          </li>
+          <li><strong>Suite géométrique de raison $q$ :</strong> $u_{n+1} = q u_n$, terme général $u_n = u_p \cdot q^{n - p}$, et somme :
+            $$\sum_{k=p}^{n} u_k = u_p \cdot \frac{1 - q^{n - p + 1}}{1 - q} \quad (q \neq 1)$$
+          </li>
+          <li><strong>Monotonie et convergence :</strong> $(u_n)$ est croissante si $u_{n+1} - u_n \ge 0$, décroissante si $u_{n+1} - u_n \le 0$. Si $-1 < q < 1$, alors $\lim_{n \to +\infty} q^n = 0$.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- COURS 1ER BAC SE : Calcul Trigonométrique -->
+    <article data-matiere="algebre" class="cours-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <span class="px-3 py-1 text-xs font-bold rounded-full bg-emerald-100 text-emerald-700">1ʳᵉ Bac SE • Trigonométrie</span>
+        <span class="text-xs text-slate-400">Cours • Calcul Trigonométrique</span>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Relations fondamentales, angles associés et formules d'addition</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-3">
+        <ul class="list-disc pl-5 space-y-1.5">
+          <li><strong>Relation fondamentale :</strong> pour tout $x \in \mathbb{R}$, $\cos^2(x) + \sin^2(x) = 1$, et $\tan(x) = \frac{\sin(x)}{\cos(x)}$ (pour $x \neq \frac{\pi}{2} + k\pi$).</li>
+          <li><strong>Angles associés :</strong> $\cos(-x) = \cos(x)$, $\sin(-x) = -\sin(x)$, $\cos(\pi - x) = -\cos(x)$, $\sin(\pi - x) = \sin(x)$, $\cos\left(\frac{\pi}{2} - x\right) = \sin(x)$, $\sin\left(\frac{\pi}{2} - x\right) = \cos(x)$.</li>
+          <li><strong>Addition et angle double :</strong>
+            $$\cos(a + b) = \cos a \cos b - \sin a \sin b, \qquad \sin(a + b) = \sin a \cos b + \cos a \sin b$$
+            $$\cos(2x) = 2\cos^2 x - 1 = 1 - 2\sin^2 x, \qquad \sin(2x) = 2\sin x \cos x$$
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- COURS 1ER BAC SE : Étude Analytique du Produit Scalaire -->
+    <article data-matiere="algebre" class="cours-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <span class="px-3 py-1 text-xs font-bold rounded-full bg-indigo-100 text-indigo-700">1ʳᵉ Bac SE • Géométrie Analytique</span>
+        <span class="text-xs text-slate-400">Cours • Produit Scalaire</span>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Produit scalaire dans un repère orthonormé, droites et cercles</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-3">
+        <ul class="list-disc pl-5 space-y-1.5">
+          <li><strong>Expression analytique et orthogonalité :</strong> dans un repère orthonormé $(O, \vec{i}, \vec{j})$, si $\vec{u}(x, y)$ et $\vec{v}(x', y')$, alors $\vec{u} \cdot \vec{v} = xx' + yy'$ et $\|\vec{u}\| = \sqrt{x^2 + y^2}$. On a $\vec{u} \perp \vec{v} \iff xx' + yy' = 0$.</li>
+          <li><strong>Droite et vecteur normal :</strong> la droite passant par $A(x_A, y_A)$ de vecteur normal $\vec{n}(a, b)$ a pour équation cartésienne $a(x - x_A) + b(y - y_A) = 0$, soit $ax + by + c = 0$. Distance d'un point $M(x_0, y_0)$ à $(D)$ :
+            $$d(M, (D)) = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}$$
+          </li>
+          <li><strong>Équation d'un cercle :</strong> le cercle de centre $\Omega(a, b)$ et de rayon $R \ge 0$ a pour équation $(x - a)^2 + (y - b)^2 = R^2$. Le cercle de diamètre $[AB]$ est l'ensemble des points $M$ tels que $\overrightarrow{MA} \cdot \overrightarrow{MB} = 0$.</li>
+        </ul>
+      </div>
+    </article>
   </main>
 
   <!-- Pied de page -->
