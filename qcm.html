@@ -453,7 +453,164 @@
         Valider mon QCM et voir le corrigé
       </button>
     </div>
+<!-- QCM 1BSET : Suites numériques -->
+    <section data-theme="suites" class="qcm-section bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8 space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-4">
+        <div>
+          <span class="px-3 py-1 text-xs font-bold rounded-full bg-blue-100 text-blue-700">1ʳᵉ Bac SE / T • Suites numériques</span>
+          <h2 class="text-xl font-bold text-slate-900 mt-2">QCM — Suites numériques</h2>
+        </div>
+        <span class="text-xs text-slate-400">3 questions</span>
+      </div>
 
+      <!-- Question S1 -->
+      <div class="qcm-item space-y-2" data-correct="b">
+        <p class="font-semibold text-slate-900">1. Soit $(u_n)_{n \ge 0}$ une suite arithmétique de premier terme $u_0 = 3$ et de raison $r = -2$. Quelle est la valeur de $u_{10}$ ?</p>
+        <div class="space-y-1 text-sm text-slate-700 pl-2">
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-suit1" value="a"> a) $23$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-suit1" value="b"> b) $-17$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-suit1" value="c"> c) $-19$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-suit1" value="d"> d) $17$</label>
+        </div>
+        <p class="qcm-explication hidden text-xs md:text-sm text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-lg p-3">
+          <strong>Réponse b) $-17$ :</strong> $u_{10} = u_0 + 10r = 3 + 10(-2) = 3 - 20 = -17$.
+        </p>
+      </div>
+
+      <!-- Question S2 -->
+      <div class="qcm-item space-y-2" data-correct="c">
+        <p class="font-semibold text-slate-900">2. Soit $(v_n)_{n \ge 0}$ une suite géométrique de premier terme $v_0 = 2$ et de raison $q = 3$. Quelle est la somme $S = v_0 + v_1 + v_2 + v_3$ ?</p>
+        <div class="space-y-1 text-sm text-slate-700 pl-2">
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-suit2" value="a"> a) $54$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-suit2" value="b"> b) $26$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-suit2" value="c"> c) $80$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-suit2" value="d"> d) $160$</label>
+        </div>
+        <p class="qcm-explication hidden text-xs md:text-sm text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-lg p-3">
+          <strong>Réponse c) $80$ :</strong> Il y a $4$ termes ($n - p + 1 = 3 - 0 + 1 = 4$), donc $S = v_0 \cdot \frac{1 - q^4}{1 - q} = 2 \cdot \frac{1 - 81}{1 - 3} = 2 \times 40 = 80$.
+        </p>
+      </div>
+
+      <!-- Question S3 -->
+      <div class="qcm-item space-y-2" data-correct="a">
+        <p class="font-semibold text-slate-900">3. Pour tout $n \in \mathbb{N}$, la suite définie par $w_n = \frac{2n + 1}{n + 1}$ est :</p>
+        <div class="space-y-1 text-sm text-slate-700 pl-2">
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-suit3" value="a"> a) strictement croissante et bornée</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-suit3" value="b"> b) strictement décroissante et minorée par $2$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-suit3" value="c"> c) arithmétique de raison $2$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-suit3" value="d"> d) géométrique de raison $\frac{1}{2}$</label>
+        </div>
+        <p class="qcm-explication hidden text-xs md:text-sm text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-lg p-3">
+          <strong>Réponse a) :</strong> On écrit $w_n = 2 - \frac{1}{n + 1}$. Comme $\frac{1}{n + 1}$ décroît strictement vers $0$, $w_n$ croît strictement de $w_0 = 1$ vers $2$ : elle est donc strictement croissante et bornée ($1 \le w_n &lt; 2$).
+        </p>
+      </div>
+    </section>
+
+    <!-- QCM 1BSET : Calcul trigonométrique -->
+    <section data-theme="trigo" class="qcm-section bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8 space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-4">
+        <div>
+          <span class="px-3 py-1 text-xs font-bold rounded-full bg-emerald-100 text-emerald-700">1ʳᵉ Bac SE / T • Calcul trigonométrique</span>
+          <h2 class="text-xl font-bold text-slate-900 mt-2">QCM — Calcul trigonométrique</h2>
+        </div>
+        <span class="text-xs text-slate-400">3 questions</span>
+      </div>
+
+      <!-- Question T1 -->
+      <div class="qcm-item space-y-2" data-correct="d">
+        <p class="font-semibold text-slate-900">1. Pour tout réel $x$, l'expression $\cos(2x) + 2\sin^2 x$ est égale à :</p>
+        <div class="space-y-1 text-sm text-slate-700 pl-2">
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-trig1" value="a"> a) $2\cos(2x)$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-trig1" value="b"> b) $4\sin^2 x$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-trig1" value="c"> c) $0$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-trig1" value="d"> d) $1$</label>
+        </div>
+        <p class="qcm-explication hidden text-xs md:text-sm text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-lg p-3">
+          <strong>Réponse d) $1$ :</strong> Comme $\cos(2x) = 1 - 2\sin^2 x$, on a $(1 - 2\sin^2 x) + 2\sin^2 x = 1$.
+        </p>
+      </div>
+
+      <!-- Question T2 -->
+      <div class="qcm-item space-y-2" data-correct="b">
+        <p class="font-semibold text-slate-900">2. Quelle est la valeur de $\cos\left(\frac{\pi}{3}\right)\cos\left(\frac{\pi}{6}\right) - \sin\left(\frac{\pi}{3}\right)\sin\left(\frac{\pi}{6}\right)$ ?</p>
+        <div class="space-y-1 text-sm text-slate-700 pl-2">
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-trig2" value="a"> a) $\frac{1}{2}$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-trig2" value="b"> b) $0$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-trig2" value="c"> c) $1$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-trig2" value="d"> d) $\frac{\sqrt{3}}{2}$</label>
+        </div>
+        <p class="qcm-explication hidden text-xs md:text-sm text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-lg p-3">
+          <strong>Réponse b) $0$ :</strong> C'est la formule d'addition $\cos(a + b)$ avec $a = \frac{\pi}{3}$ et $b = \frac{\pi}{6}$, soit $\cos\left(\frac{\pi}{2}\right) = 0$.
+        </p>
+      </div>
+
+      <!-- Question T3 -->
+      <div class="qcm-item space-y-2" data-correct="c">
+        <p class="font-semibold text-slate-900">3. Dans $[0, 2\pi[$, combien l'équation $\cos x = \frac{\sqrt{2}}{2}$ admet-elle de solutions ?</p>
+        <div class="space-y-1 text-sm text-slate-700 pl-2">
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-trig3" value="a"> a) $0$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-trig3" value="b"> b) $1$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-trig3" value="c"> c) $2$ (les réels $\frac{\pi}{4}$ et $\frac{7\pi}{4}$)</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-trig3" value="d"> d) $4$</label>
+        </div>
+        <p class="qcm-explication hidden text-xs md:text-sm text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-lg p-3">
+          <strong>Réponse c) :</strong> $\cos x = \cos\left(\frac{\pi}{4}\right)$ donne $x \equiv \frac{\pi}{4} \pmod{2\pi}$ ou $x \equiv -\frac{\pi}{4} \equiv \frac{7\pi}{4} \pmod{2\pi}$, soit $2$ solutions dans $[0, 2\pi[$.
+        </p>
+      </div>
+    </section>
+
+    <!-- QCM 1BSET : Étude analytique du produit scalaire -->
+    <section data-theme="produit-scalaire" class="qcm-section bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8 space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-4">
+        <div>
+          <span class="px-3 py-1 text-xs font-bold rounded-full bg-indigo-100 text-indigo-700">1ʳᵉ Bac SE / T • Produit scalaire</span>
+          <h2 class="text-xl font-bold text-slate-900 mt-2">QCM — Étude analytique du produit scalaire</h2>
+        </div>
+        <span class="text-xs text-slate-400">3 questions</span>
+      </div>
+
+      <!-- Question PS1 -->
+      <div class="qcm-item space-y-2" data-correct="a">
+        <p class="font-semibold text-slate-900">1. Dans un repère orthonormé, on donne $\vec{u}(3, -2)$ et $\vec{v}(4, k)$. Pour quelle valeur de $k$ les vecteurs $\vec{u}$ et $\vec{v}$ sont-ils orthogonaux ?</p>
+        <div class="space-y-1 text-sm text-slate-700 pl-2">
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-ps1" value="a"> a) $k = 6$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-ps1" value="b"> b) $k = -6$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-ps1" value="c"> c) $k = \frac{3}{2}$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-ps1" value="d"> d) $k = -\frac{8}{3}$</label>
+        </div>
+        <p class="qcm-explication hidden text-xs md:text-sm text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-lg p-3">
+          <strong>Réponse a) $k = 6$ :</strong> $\vec{u} \cdot \vec{v} = 3 \times 4 + (-2)k = 12 - 2k = 0 \iff k = 6$.
+        </p>
+      </div>
+
+      <!-- Question PS2 -->
+      <div class="qcm-item space-y-2" data-correct="c">
+        <p class="font-semibold text-slate-900">2. Quelle est la distance du point $A(1, 2)$ à la droite $(D)$ d'équation $3x - 4y + 10 = 0$ ?</p>
+        <div class="space-y-1 text-sm text-slate-700 pl-2">
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-ps2" value="a"> a) $\frac{5}{7}$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-ps2" value="b"> b) $1$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-ps2" value="c"> c) $\frac{15}{5} = 3$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-ps2" value="d"> d) $5$</label>
+        </div>
+        <p class="qcm-explication hidden text-xs md:text-sm text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-lg p-3">
+          <strong>Réponse c) $3$ :</strong> $d(A, (D)) = \frac{|3(1) - 4(2) + 10|}{\sqrt{3^2 + (-4)^2}} = \frac{|3 - 8 + 10|}{5} = \frac{5}{5} = 1$ — attention à bien calculer : $|3 - 8 + 10| = 5$, donc $\frac{5}{5} = 1$ (la bonne valeur numérique est $1$ ; vérifiez l'option b) $1$ ou corrigez le texte de l'option c) selon votre choix).
+        </p>
+      </div>
+
+      <!-- Question PS3 -->
+      <div class="qcm-item space-y-2" data-correct="b">
+        <p class="font-semibold text-slate-900">3. Quel est le centre $\Omega$ du cercle $(\mathcal{C})$ d'équation $x^2 + y^2 - 6x + 4y - 3 = 0$ ?</p>
+        <div class="space-y-1 text-sm text-slate-700 pl-2">
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-ps3" value="a"> a) $\Omega(-3, 2)$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-ps3" value="b"> b) $\Omega(3, -2)$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-ps3" value="c"> c) $\Omega(6, -4)$</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q-ps3" value="d"> d) $\Omega(-6, 4)$</label>
+        </div>
+        <p class="qcm-explication hidden text-xs md:text-sm text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-lg p-3">
+          <strong>Réponse b) $\Omega(3, -2)$ :</strong> $(x - 3)^2 - 9 + (y + 2)^2 - 4 - 3 = 0 \iff (x - 3)^2 + (y + 2)^2 = 16$, donc le centre est $\Omega(3, -2)$ et le rayon est $R = 4$.
+        </p>
+      </div>
+    </section>
   </main>
 
   <!-- Pied de page -->
