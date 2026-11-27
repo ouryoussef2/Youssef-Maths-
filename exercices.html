@@ -580,5 +580,15 @@
       });
     }
   </script>
+            <script>
+function toggleExo(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.classList.toggle("hidden");
+  if (window.MathJax && MathJax.typesetPromise) {
+    MathJax.typesetPromise([el]).catch(() => {});
+  }
+}
+</script>
 </body>
 </html>
