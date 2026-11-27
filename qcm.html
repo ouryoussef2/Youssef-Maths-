@@ -545,5 +545,34 @@
       });
     }
   </script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".qcm-item").forEach((item) => {
+    const expected = item.getAttribute("data-correct");
+    const explanation = item.querySelector(".qcm-explication");
+    item.querySelectorAll('input[type="radio"]').forEach((radio) => {
+      radio.addEventListener("change", () => {
+        if (explanation) {
+          explanation.classList.remove("hidden");
+          if (window.MathJax && MathJax.typesetPromise) {
+            MathJax.typesetPromise([explanation]).catch(() => {});
+          }
+        }
+        item.querySelectorAll("label").forEach((lbl) => {
+          lbl.classList.remove("font-bold", "text-emerald-700", "text-rose-600");
+        });
+        const chosenLabel = radio.closest("label");
+        if (chosenLabel) {
+          if (radio.value === expected) {
+            chosenLabel.classList.add("font-bold", "text-emerald-700");
+          } else {
+            chosenLabel.classList.add("font-bold", "text-rose-600");
+          }
+        }
+      });
+    });
+  });
+});
+</script>
 </body>
 </html>
