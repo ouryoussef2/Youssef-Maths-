@@ -448,6 +448,103 @@
         </p>
       </div>
     </article>
+            <!-- EXERCICE DERIVATION 1 : 1ère Bac SE/T - Nombre dérivé, dérivabilité latérale et tangente -->
+    <article data-matiere="analyse" class="exo-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 text-xs font-bold rounded-full bg-blue-100 text-blue-700">1ʳᵉ Bac SE / T • Dérivation</span>
+          <span class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-100 text-slate-700">Niveau : Intermédiaire</span>
+        </div>
+        <span class="text-xs text-slate-400">Exercice Dérivation #01</span>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Nombre dérivé par définition, tangente et dérivabilité en un point</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-2 mb-6">
+        <ol class="list-decimal pl-5 space-y-1">
+          <li>En revenant à la définition du nombre dérivé, montrer que la fonction <span class="font-semibold">$f(x) = \sqrt{2x + 1}$</span> est dérivable en <span class="font-semibold">$x_0 = 4$</span> et calculer <span class="font-semibold">$f'(4)$</span>.</li>
+          <li>En déduire l'équation réduite de la tangente <span class="font-semibold">$(T)$</span> à la courbe <span class="font-semibold">$(\mathcal{C}_f)$</span> au point d'abscisse <span class="font-semibold">$4$</span>, puis une valeur approchée de <span class="font-semibold">$\sqrt{9{,}06}$</span>.</li>
+          <li>Soit <span class="font-semibold">$g(x) = |x - 2| + x$</span>. Étudier la dérivabilité de <span class="font-semibold">$g$</span> à gauche et à droite en <span class="font-semibold">$x_0 = 2$</span>. La fonction <span class="font-semibold">$g$</span> est-elle dérivable en <span class="font-semibold">$2$</span> ?</li>
+        </ol>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <button onclick="toggleExo('ind-der1')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition">
+          💡 Indice
+        </button>
+        <button onclick="toggleExo('cor-der1')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-indigo-600 text-white hover:bg-indigo-700 transition">
+          ✓ Afficher / Masquer le corrigé
+        </button>
+      </div>
+
+      <div id="ind-der1" class="hidden mt-4 p-4 rounded-xl bg-amber-50/70 border border-amber-200 text-sm text-amber-950">
+        <strong>Indice :</strong> (1) Multipliez le taux d'accroissement $\frac{\sqrt{2x + 1} - 3}{x - 4}$ par l'expression conjuguée $\sqrt{2x + 1} + 3$. (2) Remarquez que $9{,}06 = 2(4{,}03) + 1$, soit $h = 0{,}03$. (3) Exprimez $g(x)$ sans valeur absolue pour $x &lt; 2$ et pour $x &gt; 2$.
+      </div>
+
+      <div id="cor-der1" class="hidden mt-4 p-5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-800 space-y-3">
+        <p class="font-bold text-indigo-700">Corrigé détaillé :</p>
+        <p><strong>1. Nombre dérivé en $4$ :</strong> On a $f(4) = \sqrt{9} = 3$. Pour $x \in \left[-\frac{1}{2}, +\infty\right[ \setminus \{4\}$ :
+          $$\frac{f(x) - f(4)}{x - 4} = \frac{\sqrt{2x + 1} - 3}{x - 4} = \frac{(2x + 1) - 9}{(x - 4)(\sqrt{2x + 1} + 3)} = \frac{2(x - 4)}{(x - 4)(\sqrt{2x + 1} + 3)} = \frac{2}{\sqrt{2x + 1} + 3}$$
+          Lorsque $x \to 4$, ce quotient tend vers $\frac{2}{3 + 3} = \frac{1}{3} \in \mathbb{R}$. Donc $f$ est dérivable en $4$ et $f'(4) = \frac{1}{3}$.</p>
+        <p><strong>2. Tangente et approximation affine :</strong>
+          $$(T) : y = f'(4)(x - 4) + f(4) = \frac{1}{3}(x - 4) + 3 \iff y = \frac{1}{3}x + \frac{5}{3}$$
+          Pour $h = 0{,}03$, $\sqrt{9{,}06} = f(4 + 0{,}03) \approx f(4) + 0{,}03 \times f'(4) = 3 + 0{,}03 \times \frac{1}{3} = 3{,}01$.</p>
+        <p><strong>3. Dérivabilité de $g$ en $2$ :</strong> On a $g(2) = 2$.
+          <br>• Pour $x &lt; 2$ : $g(x) = -(x - 2) + x = 2$, donc $\lim_{x \to 2^-} \frac{g(x) - g(2)}{x - 2} = \lim_{x \to 2^-} \frac{2 - 2}{x - 2} = 0$, soit $g'_g(2) = 0$.
+          <br>• Pour $x &gt; 2$ : $g(x) = (x - 2) + x = 2x - 2$, donc $\lim_{x \to 2^+} \frac{g(x) - g(2)}{x - 2} = \lim_{x \to 2^+} \frac{2x - 4}{x - 2} = 2$, soit $g'_d(2) = 2$.
+          <br>Comme $g'_g(2) \neq g'_d(2)$, la fonction $g$ <strong>n'est pas dérivable en $2$</strong> (la courbe $(\mathcal{C}_g)$ admet un point anguleux en $x = 2$).</p>
+      </div>
+    </article>
+
+    <!-- EXERCICE DERIVATION 2 : 1ère Bac SE/T - Calcul de dérivées, variations et extremums -->
+    <article data-matiere="analyse" class="exo-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 text-xs font-bold rounded-full bg-blue-100 text-blue-700">1ʳᵉ Bac SE / T • Dérivation</span>
+          <span class="px-3 py-1 text-xs font-semibold rounded-full bg-amber-100 text-amber-800">Niveau : Approfondi</span>
+        </div>
+        <span class="text-xs text-slate-400">Exercice Dérivation #02</span>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Calcul de fonction dérivée, étude de variations et extremums</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-2 mb-6">
+        <p>Soit <span class="font-semibold">$f$</span> la fonction définie sur <span class="font-semibold">$D_f = \mathbb{R} \setminus \{1\}$</span> par :</p>
+        <p class="text-center">$$f(x) = \frac{x^2 - 3x + 6}{x - 1}$$</p>
+        <ol class="list-decimal pl-5 space-y-1">
+          <li>Calculer les limites de <span class="font-semibold">$f$</span> aux bornes de <span class="font-semibold">$D_f$</span> (<span class="font-semibold">$-\infty$</span>, <span class="font-semibold">$1^-$</span>, <span class="font-semibold">$1^+$</span> et <span class="font-semibold">$+\infty$</span>).</li>
+          <li>Montrer que pour tout <span class="font-semibold">$x \in \mathbb{R} \setminus \{1\}$</span> :
+            $$f'(x) = \frac{(x + 1)(x - 3)}{(x - 1)^2}$$
+          </li>
+          <li>Étudier le signe de <span class="font-semibold">$f'(x)$</span>, dresser le tableau de variations de <span class="font-semibold">$f$</span> et préciser ses extremums locaux.</li>
+        </ol>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <button onclick="toggleExo('ind-der2')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition">
+          💡 Indice
+        </button>
+        <button onclick="toggleExo('cor-der2')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-indigo-600 text-white hover:bg-indigo-700 transition">
+          ✓ Afficher / Masquer le corrigé
+        </button>
+      </div>
+
+      <div id="ind-der2" class="hidden mt-4 p-4 rounded-xl bg-amber-50/70 border border-amber-200 text-sm text-amber-950">
+        <strong>Indice :</strong> Appliquez $\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}$ avec $u(x) = x^2 - 3x + 6$ et $v(x) = x - 1$, développez le numérateur pour obtenir $x^2 - 2x - 3$, puis factorisez.
+      </div>
+
+      <div id="cor-der2" class="hidden mt-4 p-5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-800 space-y-3">
+        <p class="font-bold text-indigo-700">Corrigé détaillé :</p>
+        <p><strong>1. Limites aux bornes de $D_f$ :</strong>
+          <br>• $\lim_{x \to -\infty} f(x) = \lim_{x \to -\infty} \frac{x^2}{x} = \lim_{x \to -\infty} x = -\infty$ et $\lim_{x \to +\infty} f(x) = +\infty$.
+          <br>• En $1$, $\lim_{x \to 1} (x^2 - 3x + 6) = 4 &gt; 0$ ; comme $\lim_{x \to 1^-} (x - 1) = 0^-$ et $\lim_{x \to 1^+} (x - 1) = 0^+$, on obtient $\lim_{x \to 1^-} f(x) = -\infty$ et $\lim_{x \to 1^+} f(x) = +\infty$.</p>
+        <p><strong>2. Calcul de $f'(x)$ :</strong> $f$ est dérivable sur $\mathbb{R} \setminus \{1\}$ comme quotient de fonctions dérivables dont le dénominateur ne s'annule pas :
+          $$f'(x) = \frac{(2x - 3)(x - 1) - (x^2 - 3x + 6)(1)}{(x - 1)^2} = \frac{2x^2 - 5x + 3 - x^2 + 3x - 6}{(x - 1)^2} = \frac{x^2 - 2x - 3}{(x - 1)^2}$$
+          Or $(x + 1)(x - 3) = x^2 - 3x + x - 3 = x^2 - 2x - 3$, d'où $f'(x) = \frac{(x + 1)(x - 3)}{(x - 1)^2}$.</p>
+        <p><strong>3. Signe de $f'(x)$, variations et extremums :</strong> Pour tout $x \neq 1$, $(x - 1)^2 &gt; 0$, donc $f'(x)$ a le signe du trinôme $(x + 1)(x - 3)$ :
+          <br>• $f'(x) &gt; 0$ sur $]-\infty, -1[$ et sur $]3, +\infty[$ : $f$ est <strong>strictement croissante</strong> sur $]-\infty, -1]$ et sur $[3, +\infty[$.
+          <br>• $f'(x) &lt; 0$ sur $]-1, 1[$ et sur $]1, 3[$ : $f$ est <strong>strictement décroissante</strong> sur $[-1, 1[$ et sur $]1, 3]$.
+          <br>• <strong>Extremums locaux :</strong> $f$ admet un <strong>maximum local</strong> en $x = -1$ égal à $f(-1) = \frac{1 + 3 + 6}{-2} = -5$, et un <strong>minimum local</strong> en $x = 3$ égal à $f(3) = \frac{9 - 9 + 6}{2} = 3$.</p>
+      </div>
+    </article>
   </main>
 
   <!-- Pied de page -->
