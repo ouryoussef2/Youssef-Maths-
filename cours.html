@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Fiches de cours et résumés détaillés de mathématiques (Analyse, Algèbre, Probabilités) — MathExcellence." />
+  <title>Fiches de Cours & Résumés — MathExcellence</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+  <!-- Barre de navigation -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-extrabold tracking-tight text-indigo-700">
+        Math<span class="text-slate-900">Excellence</span>
+      </a>
+      <nav class="flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="index.html" class="hover:text-indigo-600 transition">Accueil</a>
+        <a href="cours.html" class="text-indigo-600 font-semibold">Fiches de Cours</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- En-tête -->
+  <section class="bg-gradient-to-br from-indigo-900 via-indigo-800 to-slate-900 text-white py-14 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-indigo-500/20 border border-indigo-400/30 rounded-full mb-4">
+        Lycée Scientifique • Concours • Supérieur
+      </span>
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-4">
+        Fiches de Cours & Résumés Essentiels
+      </h1>
+      <p class="text-indigo-100 text-base md:text-lg max-w-2xl mx-auto">
+        Théorèmes fondamentaux, formules clés et méthodes de rédaction pour maîtriser l'Analyse, l'Algèbre et les Probabilités.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filtres par matière -->
+  <div class="max-w-6xl mx-auto px-4 pt-8">
+    <div class="flex flex-wrap gap-3 justify-center">
+      <button onclick="filtrerCours('tous', this)" class="filtre-btn px-5 py-2 rounded-full text-sm font-semibold bg-indigo-600 text-white shadow-sm transition">
+        Tous les modules
+      </button>
+      <button onclick="filtrerCours('analyse', this)" class="filtre-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-700 border border-slate-300 hover:border-indigo-500 transition">
+        Analyse
+      </button>
+      <button onclick="filtrerCours('algebre', this)" class="filtre-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-700 border border-slate-300 hover:border-indigo-500 transition">
+        Algèbre
+      </button>
+      <button onclick="filtrerCours('probabilites', this)" class="filtre-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-700 border border-slate-300 hover:border-indigo-500 transition">
+        Probabilités
+      </button>
+    </div>
+  </div>
+
+  <!-- Contenu des fiches -->
+  <main class="max-w-6xl mx-auto px-4 py-10 grid gap-8 md:grid-cols-2">
+
+    <!-- ANALYSE 1 : Limites et Continuité -->
+    <article data-categorie="analyse" class="fiche-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 hover:shadow-md transition">
+      <div class="flex items-center justify-between mb-3">
+        <span class="px-3 py-1 text-xs font-bold rounded-full bg-blue-100 text-blue-700">Analyse</span>
+        <span class="text-xs text-slate-400">Fiche #01</span>
+      </div>
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Limites Usuelles, Continuité & TVI</h2>
+      <p class="text-sm text-slate-600 mb-4">
+        Les croissances comparées et le Théorème des Valeurs Intermédiaires sont indispensables pour l'étude des fonctions et des suites récurrentes.
+      </p>
+      <div class="bg-slate-50 rounded-xl p-4 text-sm space-y-2 border border-slate-100">
+        <p class="font-semibold text-slate-800">Croissances comparées ($\alpha > 0$) :</p>
+        <p>$$\lim_{x \to +\infty} \frac{e^x}{x^\alpha} = +\infty \quad ; \quad \lim_{x \to +\infty} \frac{\ln x}{x^\alpha} = 0 \quad ; \quad \lim_{x \to 0^+} x^\alpha \ln x = 0$$</p>
+        <p class="font-semibold text-slate-800 pt-2">Corollaire du TVI (Bijection) :</p>
+        <p>Si $f$ est <strong>continue</strong> et <strong>strictement monotone</strong> sur $[a, b]$, alors pour tout $k$ entre $f(a)$ et $f(b)$, l'équation $f(x) = k$ admet une <strong>unique solution</strong> dans $[a, b]$.</p>
+      </div>
+    </article>
+
+    <!-- ANALYSE 2 : Intégration & Primitives -->
+    <article data-categorie="analyse" class="fiche-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 hover:shadow-md transition">
+      <div class="flex items-center justify-between mb-3">
+        <span class="px-3 py-1 text-xs font-bold rounded-full bg-blue-100 text-blue-700">Analyse</span>
+        <span class="text-xs text-slate-400">Fiche #02</span>
+      </div>
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Calcul Intégral & Intégration par Parties</h2>
+      <p class="text-sm text-slate-600 mb-4">
+        Formules essentielles pour calculer une aire, encadrer une intégrale ou démontrer une relation de récurrence sur $I_n$.
+      </p>
+      <div class="bg-slate-50 rounded-xl p-4 text-sm space-y-2 border border-slate-100">
+        <p class="font-semibold text-slate-800">Intégration par parties (IPP) :</p>
+        <p>Pour $u, v$ de classe $\mathcal{C}^1$ sur $[a, b]$ :</p>
+        <p>$$\int_a^b u'(x)v(x)\,dx = \Big[u(x)v(x)\Big]_a^b - \int_a^b u(x)v'(x)\,dx$$</p>
+        <p class="font-semibold text-slate-800 pt-2">Inégalité de la moyenne :</p>
+        <p>Si $m \le f(x) \le M$ sur $[a, b]$ ($a < b$), alors : $$m(b-a) \le \int_a^b f(x)\,dx \le M(b-a)$$</p>
+      </div>
+    </article>
+
+    <!-- ALGÈBRE 1 : Nombres Complexes -->
+    <article data-categorie="algebre" class="fiche-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 hover:shadow-md transition">
+      <div class="flex items-center justify-between mb-3">
+        <span class="px-3 py-1 text-xs font-bold rounded-full bg-emerald-100 text-emerald-700">Algèbre</span>
+        <span class="text-xs text-slate-400">Fiche #03</span>
+      </div>
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Nombres Complexes & Géométrie</h2>
+      <p class="text-sm text-slate-600 mb-4">
+        Passer de la forme algébrique à la forme exponentielle permet de linéariser, résoudre des équations et caractériser des configurations géométriques.
+      </p>
+      <div class="bg-slate-50 rounded-xl p-4 text-sm space-y-2 border border-slate-100">
+        <p class="font-semibold text-slate-800">Formules d'Euler & de Moivre :</p>
+        <p>$$\cos\theta = \frac{e^{i\theta} + e^{-i\theta}}{2} \quad ; \quad \sin\theta = \frac{e^{i\theta} - e^{-i\theta}}{2i} \quad ; \quad (\cos\theta + i\sin\theta)^n = e^{in\theta}$$</p>
+        <p class="font-semibold text-slate-800 pt-2">Critères géométriques ($A(z_A), B(z_B), C(z_C)$) :</p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>$A, B, C$ alignés $\iff \frac{z_C - z_A}{z_B - z_A} \in \mathbb{R}^*$</li>
+          <li>$(AB) \perp (AC) \iff \frac{z_C - z_A}{z_B - z_A} \in i\mathbb{R}^*$</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- ALGÈBRE 2 : Arithmétique & Structures -->
+    <article data-categorie="algebre" class="fiche-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 hover:shadow-md transition">
+      <div class="flex items-center justify-between mb-3">
+        <span class="px-3 py-1 text-xs font-bold rounded-full bg-emerald-100 text-emerald-700">Algèbre</span>
+        <span class="text-xs text-slate-400">Fiche #04</span>
+      </div>
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Arithmétique dans $\mathbb{Z}$ & Théorèmes Clés</h2>
+      <p class="text-sm text-slate-600 mb-4">
+        Les théorèmes de Bézout, Gauss et Fermat constituent le socle de la résolution des équations diophantiennes et des congruences.
+      </p>
+      <div class="bg-slate-50 rounded-xl p-4 text-sm space-y-2 border border-slate-100">
+        <p class="font-semibold text-slate-800">Théorème de Bézout & Lemme de Gauss :</p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>$a \wedge b = 1 \iff \exists (u, v) \in \mathbb{Z}^2,\; au + bv = 1$</li>
+          <li>Si $a \mid bc$ et $a \wedge b = 1$, alors $a \mid c$.</li>
+        </ul>
+        <p class="font-semibold text-slate-800 pt-2">Petit théorème de Fermat :</p>
+        <p>Si $p$ est premier et $p \nmid a$, alors : $$a^{p-1} \equiv 1 \pmod{p}$$</p>
+      </div>
+    </article>
+
+    <!-- PROBABILITÉS 1 : Probabilités Conditionnelles -->
+    <article data-categorie="probabilites" class="fiche-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 hover:shadow-md transition">
+      <div class="flex items-center justify-between mb-3">
+        <span class="px-3 py-1 text-xs font-bold rounded-full bg-purple-100 text-purple-700">Probabilités</span>
+        <span class="text-xs text-slate-400">Fiche #05</span>
+      </div>
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Conditionnement & Formule de Bayes</h2>
+      <p class="text-sm text-slate-600 mb-4">
+        Indispensable pour exploiter un arbre pondéré et inverser un conditionnement lors d'un tirage successif ou d'un test.
+      </p>
+      <div class="bg-slate-50 rounded-xl p-4 text-sm space-y-2 border border-slate-100">
+        <p class="font-semibold text-slate-800">Probabilités totales :</p>
+        <p>Si $(A_1, \dots, A_n)$ forme un système complet d'événements de probabilités non nulles :</p>
+        <p>$$P(B) = \sum_{k=1}^{n} P(A_k) \times P_{A_k}(B)$$</p>
+        <p class="font-semibold text-slate-800 pt-2">Formule de Bayes :</p>
+        <p>$$P_B(A_k) = \frac{P(A_k) \times P_{A_k}(B)}{P(B)}$$</p>
+      </div>
+    </article>
+
+    <!-- PROBABILITÉS 2 : Variables Aléatoires & Loi Binomiale -->
+    <article data-categorie="probabilites" class="fiche-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 hover:shadow-md transition">
+      <div class="flex items-center justify-between mb-3">
+        <span class="px-3 py-1 text-xs font-bold rounded-full bg-purple-100 text-purple-700">Probabilités</span>
+        <span class="text-xs text-slate-400">Fiche #06</span>
+      </div>
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Variables Aléatoires Discrètes & Loi Binomiale</h2>
+      <p class="text-sm text-slate-600 mb-4">
+        Caractérisation de l'espérance, de la variance et des paramètres d'une répétition d'épreuves de Bernoulli indépendantes.
+      </p>
+      <div class="bg-slate-50 rounded-xl p-4 text-sm space-y-2 border border-slate-100">
+        <p class="font-semibold text-slate-800">Espérance & Formule de König-Huygens :</p>
+        <p>$$E(X) = \sum_{i} x_i P(X = x_i) \quad ; \quad V(X) = E(X^2) - \big[E(X)\big]^2$$</p>
+        <p class="font-semibold text-slate-800 pt-2">Loi Binomiale $X \sim \mathcal{B}(n, p)$ :</p>
+        <p>$$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k} \quad ; \quad E(X) = np \quad ; \quad V(X) = np(1-p)$$</p>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="border-t border-slate-200 bg-white py-8 px-4 text-center text-sm text-slate-500">
+    <p>© 2026 <strong>MathExcellence</strong> — Plateforme de Cours, Résumés & Exercices Corrigés de Mathématiques.</p>
+  </footer>
+
+  <!-- Script de filtrage -->
+  <script>
+    function filtrerCours(categorie, boutonActif) {
+      const cartes = document.querySelectorAll('.fiche-card');
+      const boutons = document.querySelectorAll('.filtre-btn');
+
+      boutons.forEach(btn => {
+        btn.classList.remove('bg-indigo-600', 'text-white', 'shadow-sm');
+        btn.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-300');
+      });
+
+      boutonActif.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-300');
+      boutonActif.classList.add('bg-indigo-600', 'text-white', 'shadow-sm');
+
+      cartes.forEach(carte => {
+        if (categorie === 'tous' || carte.dataset.categorie === categorie) {
+          carte.classList.remove('hidden');
+        } else {
+          carte.classList.add('hidden');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
