@@ -206,7 +206,156 @@
         </p>
       </div>
     </article>
+<!-- EXERCICE 4 : Algèbre (Arithmétique dans Z) -->
+    <article data-categorie="algebre" class="exo-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 text-xs font-bold rounded-full bg-emerald-100 text-emerald-700">Algèbre</span>
+          <span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-50 text-emerald-800">Niveau : Bac SM / Supérieur</span>
+        </div>
+        <span class="text-xs text-slate-400">Exercice #04</span>
+      </div>
 
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Équation diophantienne et divisibilité</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-2 mb-6">
+        <p>On considère dans $\mathbb{Z}^2$ l'équation $(E) : 7x - 5y = 2$.</p>
+        <ol class="list-decimal pl-5 space-y-1">
+          <li>Vérifier que le couple $(x_0, y_0) = (1, 1)$ est solution de $(E)$.</li>
+          <li>Résoudre entièrement l'équation $(E)$ dans $\mathbb{Z}^2$.</li>
+          <li>Déterminer les couples $(x, y)$ solutions tels que $0 \le x \le 20$.</li>
+        </ol>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <button onclick="toggleBloc('indice-4')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition">
+          💡 Indice
+        </button>
+        <button onclick="toggleBloc('corr-4')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-indigo-600 text-white hover:bg-indigo-700 transition">
+          ✓ Afficher / Masquer la correction
+        </button>
+      </div>
+
+      <div id="indice-4" class="hidden mt-4 p-4 rounded-xl bg-amber-50/70 border border-amber-200 text-sm text-amber-950">
+        <strong>Indice :</strong> Soustrayez $7(1) - 5(1) = 2$ à l'équation $(E)$ pour obtenir $7(x - 1) = 5(y - 1)$, puis utilisez le lemme de Gauss car $\operatorname{pgcd}(7, 5) = 1$.
+      </div>
+
+      <div id="corr-4" class="hidden mt-4 p-5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-800 space-y-3">
+        <p class="font-bold text-indigo-700">Correction détaillée :</p>
+        <p><strong>1. Solution particulière :</strong> $7 \times 1 - 5 \times 1 = 7 - 5 = 2$, donc $(1, 1)$ est bien solution de $(E)$.</p>
+        <p><strong>2. Résolution générale :</strong> Soit $(x, y) \in \mathbb{Z}^2$ solution de $(E)$. On a :
+          $$7x - 5y = 7(1) - 5(1) \iff 7(x - 1) = 5(y - 1)$$
+          Comme $7$ et $5$ sont premiers entre eux, $7$ divise $5(y - 1)$, donc $7$ divise $y - 1$ d'après le lemme de Gauss. Il existe donc $k \in \mathbb{Z}$ tel que $y - 1 = 7k$, soit $y = 1 + 7k$.
+          En remplaçant dans $7(x - 1) = 5(7k)$, on obtient $x - 1 = 5k$, soit $x = 1 + 5k$.
+          Réciproquement, tout couple $(1 + 5k, 1 + 7k)$ avec $k \in \mathbb{Z}$ vérifie $7(1 + 5k) - 5(1 + 7k) = 7 + 35k - 5 - 35k = 2$.
+          L'ensemble des solutions est donc :
+          $$\mathcal{S} = \big\{(1 + 5k,\, 1 + 7k),\; k \in \mathbb{Z}\big\}$$
+        </p>
+        <p><strong>3. Condition $0 \le x \le 20$ :</strong>
+          $$0 \le 1 + 5k \le 20 \iff -1 \le 5k \le 19 \iff -0{,}2 \le k \le 3{,}8$$
+          Comme $k \in \mathbb{Z}$, les valeurs possibles sont $k \in \{0, 1, 2, 3\}$, ce qui donne les couples $(1, 1)$, $(6, 8)$, $(11, 15)$ et $(16, 22)$.</p>
+      </div>
+    </article>
+
+    <!-- EXERCICE 5 : Algèbre (Matrices & Suites) -->
+    <article data-categorie="algebre" class="exo-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 text-xs font-bold rounded-full bg-emerald-100 text-emerald-700">Algèbre</span>
+          <span class="px-3 py-1 text-xs font-semibold rounded-full bg-indigo-50 text-indigo-800">Niveau : Supérieur / Prépa</span>
+        </div>
+        <span class="text-xs text-slate-400">Exercice #05</span>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Calcul de $A^n$ et suites liées</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-2 mb-6">
+        <p>Soit la matrice $A = \begin{pmatrix} 2 & -1 \\ -1 & 2 \end{pmatrix}$ et $I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$.</p>
+        <ol class="list-decimal pl-5 space-y-1">
+          <li>Poser $J = A - I$ et calculer $J^2$.</li>
+          <li>En déduire l'expression de $A^n$ pour tout entier naturel $n \ge 1$.</li>
+        </ol>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <button onclick="toggleBloc('indice-5')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition">
+          💡 Indice
+        </button>
+        <button onclick="toggleBloc('corr-5')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-indigo-600 text-white hover:bg-indigo-700 transition">
+          ✓ Afficher / Masquer la correction
+        </button>
+      </div>
+
+      <div id="indice-5" class="hidden mt-4 p-4 rounded-xl bg-amber-50/70 border border-amber-200 text-sm text-amber-950">
+        <strong>Indice :</strong> Calculez $J = \begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix}$ : vous remarquerez que $J^2 = 2J$, puis par récurrence que $J^k = 2^{k-1}J$ pour $k \ge 1$.
+      </div>
+
+      <div id="corr-5" class="hidden mt-4 p-5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-800 space-y-3">
+        <p class="font-bold text-indigo-700">Correction détaillée :</p>
+        <p><strong>1. Calcul de $J^2$ :</strong> On a $J = A - I = \begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix}$. Donc :
+          $$J^2 = \begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix}\begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix} = \begin{pmatrix} 2 & -2 \\ -2 & 2 \end{pmatrix} = 2J$$
+        </p>
+        <p><strong>2. Expression de $A^n$ :</strong> Par récurrence immédiate, pour tout $k \ge 1$, $J^k = 2^{k-1}J$. Comme $I$ et $J$ commutent et $A = I + J$, la formule du binôme de Newton donne :
+          $$A^n = (I + J)^n = I^n + \sum_{k=1}^{n} \binom{n}{k} J^k = I + \left(\sum_{k=1}^{n} \binom{n}{k} 2^{k-1}\right) J$$
+          Or :
+          $$\sum_{k=1}^{n} \binom{n}{k} 2^k = (1 + 2)^n - 1 = 3^n - 1 \implies \sum_{k=1}^{n} \binom{n}{k} 2^{k-1} = \frac{3^n - 1}{2}$$
+          Ainsi :
+          $$A^n = I + \frac{3^n - 1}{2} J = \frac{1}{2}\begin{pmatrix} 1 + 3^n & 1 - 3^n \\ 1 - 3^n & 1 + 3^n \end{pmatrix}$$
+        </p>
+      </div>
+    </article>
+
+    <!-- EXERCICE 6 : Analyse (Équations différentielles) -->
+    <article data-categorie="analyse" class="exo-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 text-xs font-bold rounded-full bg-blue-100 text-blue-700">Analyse</span>
+          <span class="px-3 py-1 text-xs font-semibold rounded-full bg-amber-100 text-amber-800">Niveau : Terminale / Supérieur</span>
+        </div>
+        <span class="text-xs text-slate-400">Exercice #06</span>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mb-3">Équation différentielle linéaire du 1er ordre</h2>
+      <div class="text-slate-700 text-sm md:text-base space-y-2 mb-6">
+        <p>On considère l'équation différentielle sur $\mathbb{R}$ :
+          $$(D) : y' + 2y = 6e^{-x}$$
+        </p>
+        <ol class="list-decimal pl-5 space-y-1">
+          <li>Résoudre l'équation homogène associée $(D_0) : y' + 2y = 0$.</li>
+          <li>Déterminer une solution particulière de $(D)$ de la forme $y_p(x) = \lambda e^{-x}$.</li>
+          <li>En déduire toutes les solutions de $(D)$, puis la solution $f$ vérifiant $f(0) = 4$.</li>
+        </ol>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <button onclick="toggleBloc('indice-6')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition">
+          💡 Indice
+        </button>
+        <button onclick="toggleBloc('corr-6')" class="px-4 py-2 rounded-lg text-sm font-semibold bg-indigo-600 text-white hover:bg-indigo-700 transition">
+          ✓ Afficher / Masquer la correction
+        </button>
+      </div>
+
+      <div id="indice-6" class="hidden mt-4 p-4 rounded-xl bg-amber-50/70 border border-amber-200 text-sm text-amber-950">
+        <strong>Indice :</strong> Dérivez $y_p(x) = \lambda e^{-x}$ (attention au signe moins : $y_p'(x) = -\lambda e^{-x}$), puis injectez dans $(D)$.
+      </div>
+
+      <div id="corr-6" class="hidden mt-4 p-5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-800 space-y-3">
+        <p class="font-bold text-indigo-700">Correction détaillée :</p>
+        <p><strong>1. Équation homogène :</strong> Les solutions de $y' + 2y = 0$ sur $\mathbb{R}$ sont les fonctions :
+          $$y_h(x) = C e^{-2x}, \quad C \in \mathbb{R}$$
+        </p>
+        <p><strong>2. Solution particulière :</strong> Pour $y_p(x) = \lambda e^{-x}$, on a $y_p'(x) = -\lambda e^{-x}$. En remplaçant dans $(D)$ :
+          $$-\lambda e^{-x} + 2\lambda e^{-x} = 6e^{-x} \iff \lambda e^{-x} = 6e^{-x} \implies \lambda = 6$$
+          Ainsi $y_p(x) = 6e^{-x}$ est solution particulière de $(D)$.
+        </p>
+        <p><strong>3. Solutions générales et condition initiale :</strong> Toutes les solutions de $(D)$ sur $\mathbb{R}$ s'écrivent :
+          $$y(x) = C e^{-2x} + 6e^{-x}, \quad C \in \mathbb{R}$$
+          Avec $f(0) = 4$ :
+          $$C e^0 + 6e^0 = 4 \iff C + 6 = 4 \implies C = -2$$
+          La solution recherchée est donc :
+          $$f(x) = -2e^{-2x} + 6e^{-x}$$
+        </p>
+      </div>
+    </article>
   </main>
 
   <!-- Pied de page -->
