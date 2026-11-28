@@ -574,5 +574,40 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+          <script>
+window.toggleBloc = window.toggleBloc || function (id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.classList.toggle("hidden");
+  if (!el.classList.contains("hidden") && window.MathJax && MathJax.typesetPromise) {
+    MathJax.typesetPromise([el]).catch(() => {});
+  }
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("button").forEach((btn) => {
+    if (btn.getAttribute("onclick") || btn.dataset.bound) return;
+    const label = (btn.textContent || "").toLowerCase();
+    if (!/indice|corrig|solution/.test(label)) return;
+
+    btn.dataset.bound = "1";
+    btn.addEventListener("click", () => {
+      let target = btn.nextElementSibling;
+      while (target && target.tagName === "BUTTON") {
+        target = target.nextElementSibling;
+      }
+      if (!target && btn.parentElement) {
+        target = btn.parentElement.nextElementSibling;
+      }
+      if (target) {
+        target.classList.toggle("hidden");
+        if (!target.classList.contains("hidden") && window.MathJax && MathJax.typesetPromise) {
+          MathJax.typesetPromise([target]).catch(() => {});
+        }
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>
