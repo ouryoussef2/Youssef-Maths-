@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notions de logique mathématique (1ʳᵉ Bac SE / T) — MathExcellence</title>
+  <meta name="description" content="Cours complet et corrigé sur les notions de logique mathématique pour la 1ère année Bac Sciences Expérimentales et Techniques : propositions, quantificateurs, négation, connecteurs logiques et raisonnements." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+  <!-- Barre de navigation -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
+      <a href="index.html" class="text-xl font-extrabold text-indigo-700 tracking-tight">MathExcellence</a>
+      <nav class="flex flex-wrap items-center gap-4 text-sm font-medium text-slate-600">
+        <a href="index.html" class="hover:text-indigo-700">Accueil</a>
+        <a href="cours.html" class="text-indigo-700 font-semibold">Fiches de Cours</a>
+        <a href="exercices.html" class="hover:text-indigo-700">Exercices Corrigés</a>
+        <a href="devoirs.html" class="hover:text-indigo-700">Devoirs Libres</a>
+        <a href="qcm.html" class="hover:text-indigo-700">QCM Chronométré</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-8 md:py-12 space-y-8">
+
+    <!-- En-tête du chapitre -->
+    <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span class="px-3 py-1 text-xs font-bold rounded-full bg-indigo-100 text-indigo-700">1ʳᵉ Bac Sciences Expérimentales / Techniques</span>
+        <span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-50 text-emerald-700">Chapitre 01 • Logique</span>
+      </div>
+      <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-3">Notions de logique mathématique</h1>
+      <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+        Ce cours présente les bases du raisonnement mathématique : propositions et fonctions propositionnelles, quantificateurs universel et existentiel, règles de négation, connecteurs logiques (conjonction, disjonction, implication, équivalence) et principaux modes de démonstration.
+      </p>
+    </section>
+
+    <!-- I. Proposition et fonction propositionnelle -->
+    <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8 space-y-4">
+      <h2 class="text-xl font-bold text-indigo-800 border-b border-slate-100 pb-2">I. Proposition et fonction propositionnelle</h2>
+
+      <div class="p-4 rounded-xl bg-indigo-50/70 border-l-4 border-indigo-600 text-sm md:text-base">
+        <strong>Définition (Proposition) :</strong> Une <em>proposition</em> (ou assertion) est un énoncé mathématique auquel on peut attribuer sans ambiguïté la valeur de vérité <strong>Vrai (V)</strong> ou <strong>Faux (F)</strong>, mais jamais les deux à la fois.
+      </div>
+
+      <div class="space-y-2 text-sm md:text-base">
+        <p><strong>Exemples corrigés :</strong></p>
+        <ul class="list-disc pl-6 space-y-1">
+          <li>« Chaque nombre impair <strong>est</strong> un nombre premier » : proposition <strong>fausse</strong> (car $9$ est impair et $9 = 3 \times 3$ n'est pas premier).</li>
+          <li>« Tout <strong>carré</strong> est un parallélogramme » : proposition <strong>vraie</strong>.</li>
+          <li>« Tout nombre pair <strong>est</strong> divisible par $4$ » : proposition <strong>fausse</strong> (par exemple $6$ est pair mais non divisible par $4$).</li>
+        </ul>
+      </div>
+
+      <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-sm md:text-base">
+        <strong>Fonction propositionnelle :</strong> C'est un énoncé contenant une ou plusieurs variables appartenant à un ensemble $E$, qui devient une proposition dès que l'on remplace chaque variable par un élément précis de $E$. On la note $P(x)$ ou $P(x,y)$.
+      </div>
+    </section>
+
+    <!-- II. Quantificateurs et négation -->
+    <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8 space-y-4">
+      <h2 class="text-xl font-bold text-indigo-800 border-b border-slate-100 pb-2">II. Quantificateurs et négation d'une proposition</h2>
+
+      <ul class="list-disc pl-6 space-y-2 text-sm md:text-base">
+        <li><strong>Quantificateur universel ($\forall$) :</strong> La proposition « $(\forall x \in E) : P(x)$ » signifie « pour tout $x$ de $E$, $P(x)$ est vraie ».</li>
+        <li><strong>Quantificateur existentiel ($\exists$) :</strong> La proposition « $(\exists x \in E) : P(x)$ » signifie « il existe au moins un $x$ de $E$ tel que $P(x)$ soit vraie ».</li>
+        <li><strong>Existence et unicité ($\exists!$) :</strong> « $(\exists! x \in E) : P(x)$ » signifie « il existe un unique $x$ de $E$ tel que $P(x)$ soit vraie ».</li>
+      </ul>
+
+      <div class="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200 text-sm md:text-base space-y-2">
+        <p class="font-bold text-emerald-900">Exemples d'application :</p>
+        <ul class="list-disc pl-6 space-y-1">
+          <li>$P : (\forall x \in \mathbb{R}) : 2x + 5 = 0$ est <strong>fausse</strong>, car pour $x = 0$ on obtient $2 \times 0 + 5 = 5 \neq 0$.</li>
+          <li>$Q : (\exists n \in \mathbb{N}) : 2n - 12 = 0$ est <strong>vraie</strong>, car $n = 6 \in \mathbb{N}$ vérifie $2 \times 6 - 12 = 0$.</li>
+          <li>$(\forall x \in \mathbb{R})(\forall y \in \mathbb{R}) : x \le y$ est <strong>fausse</strong> (contre-exemple : $x = 1$ et $y = 0$).</li>
+          <li>$(\forall x \in \mathbb{Q}^+) : \sqrt{x} \notin \mathbb{Q}$ est <strong>fausse</strong> (pour $x = 4 \in \mathbb{Q}^+$, $\sqrt{4} = 2 \in \mathbb{Q}$). Sa négation est $(\exists x \in \mathbb{Q}^+) : \sqrt{x} \in \mathbb{Q}$.</li>
+          <li>$(\forall x \in \mathbb{R}^+)(\forall y \in \mathbb{R}^+) : \sqrt{x + y} = \sqrt{x} + \sqrt{y}$ est <strong>fausse</strong> (pour $x = y = 1$, $\sqrt{2} \neq 2$).</li>
+        </ul>
+      </div>
+
+      <div class="p-4 rounded-xl bg-amber-50/80 border-l-4 border-amber-500 text-sm md:text-base space-y-2">
+        <p class="font-bold text-amber-950">Règles de négation :</p>
+        <ul class="list-disc pl-6 space-y-1">
+          <li>La négation de « $(\forall x \in E) : P(x)$ » est « $(\exists x \in E) : \overline{P(x)}$ ».</li>
+          <li>La négation de « $(\exists x \in E) : P(x)$ » est « $(\forall x \in E) : \overline{P(x)}$ ».</li>
+          <li>La négation de $a = b$ est $a \neq b$ ; celle de $a \ge b$ est $a &lt; b$ ; celle de $a \le b$ est $a &gt; b$.</li>
+        </ul>
+        <p class="text-xs md:text-sm text-amber-900 pt-1">
+          <strong>Remarque :</strong> « Il existe un entier naturel multiple de tous les autres » est <strong>vraie</strong> si l'on accepte $0$ ($0$ est multiple de tout entier). Pour obtenir une proposition fausse, il faut préciser « un entier naturel <em>non nul</em> multiple de tous les autres ».
+        </p>
+      </div>
+    </section>
+
+    <!-- III. Connecteurs logiques -->
+    <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8 space-y-4">
+      <h2 class="text-xl font-bold text-indigo-800 border-b border-slate-100 pb-2">III. Connecteurs logiques et lois de De Morgan</h2>
+
+      <div class="grid md:grid-cols-2 gap-4 text-sm md:text-base">
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+          <h3 class="font-bold text-slate-900 mb-1">1. Conjonction ($P \text{ et } Q$, notée $P \wedge Q$)</h3>
+          <p>Elle est vraie uniquement lorsque $P$ et $Q$ sont toutes les deux vraies.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+          <h3 class="font-bold text-slate-900 mb-1">2. Disjonction ($P \text{ ou } Q$, notée $P \vee Q$)</h3>
+          <p>Elle est fausse uniquement lorsque $P$ et $Q$ sont toutes les deux fausses. Exemple : $\big((\exists x \in \mathbb{R}) : x^2 = -1\big) \text{ ou } (\sqrt{2} \in \mathbb{Q})$ est fausse.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+          <h3 class="font-bold text-slate-900 mb-1">3. Implication ($P \Rightarrow Q$)</h3>
+          <p>$P \Rightarrow Q$ équivaut à $(\overline{P} \text{ ou } Q)$. Elle est fausse uniquement si $P$ est vraie et $Q$ est fausse.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+          <h3 class="font-bold text-slate-900 mb-1">4. Équivalence ($P \Leftrightarrow Q$)</h3>
+          <p>Signifie $(P \Rightarrow Q) \text{ et } (Q \Rightarrow P)$. Exemple : pour tout $x \in \mathbb{R} \setminus \{-1\}$, $|x - 1| &lt; \frac{1}{2} \Leftrightarrow \frac{2}{5} &lt; \frac{1}{x + 1} &lt; \frac{2}{3}$.</p>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-200 text-sm md:text-base">
+        <strong>Lois de De Morgan :</strong>
+        $$\overline{P \text{ et } Q} \Longleftrightarrow \overline{P} \text{ ou } \overline{Q} \qquad ; \qquad \overline{P \text{ ou } Q} \Longleftrightarrow \overline{P} \text{ et } \overline{Q}$$
+      </div>
+    </section>
+
+    <!-- IV. Modes de raisonnement -->
+    <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8 space-y-4">
+      <h2 class="text-xl font-bold text-indigo-800 border-b border-slate-100 pb-2">IV. Les principaux modes de raisonnement</h2>
+
+      <ol class="list-decimal pl-6 space-y-3 text-sm md:text-base">
+        <li><strong>Raisonnement par contre-exemple :</strong> Pour montrer que « $(\forall x \in E) : P(x)$ » est fausse, il suffit de trouver un élément $x_0 \in E$ tel que $P(x_0)$ soit fausse.</li>
+        <li><strong>Raisonnement par contraposée :</strong> Il se <strong>base</strong> sur l'équivalence $(P \Rightarrow Q) \Leftrightarrow (\overline{Q} \Rightarrow \overline{P})$.</li>
+        <li><strong>Raisonnement par l'absurde :</strong> Pour montrer que $P$ est vraie, on suppose $\overline{P}$ vraie et l'on aboutit à une contradiction.</li>
+        <li><strong>Raisonnement par disjonction des cas :</strong> On partage l'ensemble d'étude en plusieurs cas complémentaires et on démontre la propriété dans chacun d'eux.</li>
+        <li>
+          <strong>Raisonnement par récurrence :</strong> Soit $P(n)$ une fonction propositionnelle définie pour tout entier $n \ge n_0$. Si $P(n_0)$ est vraie et si, pour tout $n \ge n_0$, $P(n) \Rightarrow P(n+1)$, alors $P(n)$ <strong>est vraie</strong> pour tout entier $n \ge n_0$.
+          <div class="mt-2 p-3 rounded-lg bg-slate-50 border border-slate-200 text-sm space-y-1">
+            <p><strong>Exemples classiques :</strong></p>
+            <p>• Pour tout $n \in \mathbb{N}$, $3$ divise $4^n - 1$ (initialisation à $n = 0$ : $4^0 - 1 = 0$ et $3$ divise $0$, donc la propriété est vraie pour $n = 0$).</p>
+            <p>• Pour tout $n \in \mathbb{N}$, $2$ divise $5^n - 3^n$.</p>
+            <p>• Pour tout $n \in \mathbb{N}^*$, $1 + 2 + 3 + \dots + n = \dfrac{n(n+1)}{2}$ (initialisation à $n = 1$ : $1 = \dfrac{1 \times 2}{2}$).</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Lien vers la pratique -->
+    <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+      <a href="cours.html" class="px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-sm font-semibold text-slate-700 hover:bg-slate-100 transition">
+        ← Retour aux fiches de cours
+      </a>
+      <a href="exercices.html" class="px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 transition">
+        S'entraîner sur les exercices →
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white mt-12 py-6 text-center text-xs text-slate-500">
+    MathExcellence — Plateforme pédagogique de Mathématiques (1ʳᵉ Bac Sciences Expérimentales & Techniques)
+  </footer>
+</body>
+</html>
